@@ -1,22 +1,38 @@
-import React from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import { Routes, Route } from "react-router-dom";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import Portfolio from "./pages/Portfolio";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
-import About from "./pages/About";
+import Weather from "./Projects/Weather.jsx";
+import Todo from "./Projects/Todo.jsx";
+import Calculator from "./Projects/Calculator.jsx";
+import ScrollToTop from "./ScrollToTop";
 
-export default function App() {
+function App() {
+  const location = useLocation();
+
   return (
-    <>
+    <div className="app-layout">
       <Navbar />
-      <Routes>
-        <Route path="/" elements={<Home />} />
-        <Route path="/blogs" elements={<Blogs />} />
-        <Route path="/contact" elements={<Contact />} />
-        <Route path="/about" elements={<About />} />
-      </Routes>
+      <main className="content">
+        {/* This makes sure each new page starts at top */}
+        <ScrollToTop key={location.pathname} />
+        <Routes location={location}>
+          <Route path="/" element={<Home />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/weather" element={<Weather />} />
+          <Route path="/todo" element={<Todo />} />
+          <Route path="/calculator" element={<Calculator />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </main>
       <Footer />
-    </>
+    </div>
   );
 }
+
+export default App;
