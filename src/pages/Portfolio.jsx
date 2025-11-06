@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import "./Portfolio.css";
 
 export default function Portfolio() {
@@ -88,6 +89,7 @@ export default function Portfolio() {
             >
               <h3>{project.title}</h3>
               <p>{project.desc}</p>
+
               {project.external ? (
                 <a
                   className="project-btn"
@@ -98,9 +100,9 @@ export default function Portfolio() {
                   View Live Website
                 </a>
               ) : (
-                <a className="project-btn" href={project.link}>
+                <Link className="project-btn" to={project.link}>
                   View Project
-                </a>
+                </Link>
               )}
             </motion.div>
           ))}
