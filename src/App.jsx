@@ -5,11 +5,11 @@ import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
-import Weather from ".projects/Weather";
 import Todo from "./projects/Todo";
 
 import ScrollToTop from "./ScrollToTop";
 import Calculator from "./Projects/Calculator";
+import Weather from "./Projects/Weather";
 
 function App() {
   const location = useLocation();
