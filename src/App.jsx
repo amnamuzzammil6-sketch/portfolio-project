@@ -5,10 +5,11 @@ import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
-import Weather from "./Projects/Weather.jsx";
-import Todo from "./Projects/Todo.jsx";
-import Calculator from "./Projects/Calculator.jsx";
+import Weather from ".projects/Weather";
+import Todo from "./projects/Todo";
+
 import ScrollToTop from "./ScrollToTop";
+import Calculator from "./Projects/Calculator";
 
 function App() {
   const location = useLocation();
