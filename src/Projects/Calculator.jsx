@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./calculator.css";
+import "./Calculator.css";
 
 export default function Calculator() {
   const [input, setInput] = useState("");
@@ -20,15 +20,53 @@ export default function Calculator() {
         <div className="calculator-page">
           <div className="calculator-box">
             <h1 className="calculator-title">Calculator</h1>
-            <input className="calculator-screen" type="text" value={input} readOnly />
+            <input
+              className="calculator-screen"
+              type="text"
+              value={input}
+              readOnly
+            />
 
             <div className="calculator-buttons">
-              {["7","8","9","/","4","5","6","*","1","2","3","-","0",".","=","+"].map((btn) => (
-                btn === "=" ? 
-                  <button key={btn} className="calc-btn calc-btn-equal" onClick={calculate}>{btn}</button> :
-                  <button key={btn} className="calc-btn" onClick={() => appendValue(btn)}>{btn}</button>
-              ))}
-              <button className="calc-btn calc-btn-clear" onClick={clearInput}>Clear</button>
+              {[
+                "7",
+                "8",
+                "9",
+                "/",
+                "4",
+                "5",
+                "6",
+                "*",
+                "1",
+                "2",
+                "3",
+                "-",
+                "0",
+                ".",
+                "=",
+                "+",
+              ].map((btn) =>
+                btn === "=" ? (
+                  <button
+                    key={btn}
+                    className="calc-btn calc-btn-equal"
+                    onClick={calculate}
+                  >
+                    {btn}
+                  </button>
+                ) : (
+                  <button
+                    key={btn}
+                    className="calc-btn"
+                    onClick={() => appendValue(btn)}
+                  >
+                    {btn}
+                  </button>
+                )
+              )}
+              <button className="calc-btn calc-btn-clear" onClick={clearInput}>
+                Clear
+              </button>
             </div>
           </div>
         </div>
