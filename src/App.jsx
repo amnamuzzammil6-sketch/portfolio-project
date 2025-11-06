@@ -17,7 +17,6 @@ function App() {
     <div className="app-layout">
       <Navbar />
       <main className="content">
-        {/* This makes sure each new page starts at top */}
         <ScrollToTop key={location.pathname} />
         <Routes location={location}>
           <Route path="/" element={<Home />} />
