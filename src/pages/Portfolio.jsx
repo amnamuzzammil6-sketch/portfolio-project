@@ -8,7 +8,7 @@ export default function Portfolio() {
     {
       title: "Portfolio Website",
       desc: "React-based professional portfolio website.",
-      link: "/portfolio",
+      link: "/",
       external: false,
     },
     {
