@@ -1,5 +1,5 @@
 import React from "react";
-import "./home.css";
+import "./Home.css";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ReactTyped } from "react-typed";

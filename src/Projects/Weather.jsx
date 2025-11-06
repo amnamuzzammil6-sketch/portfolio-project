@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./weather.css";
+import "./Weather.css";
 
 export default function Weather() {
   const [city, setCity] = useState("");

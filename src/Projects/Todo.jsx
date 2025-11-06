@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./todo.css";
+import "./Todo.css";
 
 export default function ToDo() {
   const [tasks, setTasks] = useState([]);
