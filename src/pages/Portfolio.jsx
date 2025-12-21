@@ -81,9 +81,9 @@ export default function Portfolio() {
     },
     {
       title: "Frontend Web Development",
-      issuer: "Bano Qabil 2.0",
+      issuer: "Bano Qabil 4.0",
       status: "Completed",
-      desc: "Comprehensive training in HTML5, CSS3, JavaScript, and responsive web design.",
+      desc: "Comprehensive training in HTML5, CSS, JavaScript, and responsive web design.",
       link: "#", 
       //image: banoQabilImg // Clicking this image opens bano-qabil.jpg
     },
@@ -140,8 +140,8 @@ export default function Portfolio() {
             <p><strong>R Programming</strong>, <strong>Tableau</strong>, <strong>SQL</strong>, Google Data Analytics Certified</p>
           </div>
           <div className="skill-box">
-            <h3>Web Engineering</h3>
-            <p><strong>React.js</strong>, <strong>Google UX Design</strong>, JavaScript ES6, HTML5, CSS3</p>
+            <h3>Front-end Web Development</h3>
+            <p><strong>React.js</strong>, <strong>Google UX Design</strong>, JavaScript , HTML5, CSS</p>
           </div>
           <div className="skill-box">
             <h3>AI & Optimization</h3>
