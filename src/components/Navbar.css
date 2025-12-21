@@ -1,63 +1,107 @@
+/* Navbar.css - Clean Version */
+
 .navbar {
+  width: 100%;
+  height: 80px;
+  background-color: #0b1120; /* Deep Slate */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   position: fixed;
   top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-container {
   width: 100%;
-  background-color: #0a192f;
+  max-width: 1200px;
+  height: 100%;
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
-  padding: 0 60px;
-  z-index: 1000;
 }
 
-
+/* Logo - Solid White */
 .logo {
   color: #fff;
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: 1px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px; 
 }
 
+/* If you still have the span in jsx, this forces it white */
 .logo-highlight {
-  color: #64ffda;
-  font-weight: bold;
+  color: #fff; 
 }
 
 .nav-menu {
   display: flex;
-  gap: 28px;
+  align-items: center;
   list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
 }
 
-.nav-menu li a {
+.nav-links {
+  color: #94a3b8; /* Slate Grey */
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 6px;
-  text-decoration: none;
-  font-size: 15px;
-  color: #ccd6f6;
-  font-weight: 400;
-  transition: 0.3s ease;
+  gap: 8px;
+  transition: all 0.3s ease;
 }
 
-.nav-menu li a:hover {
-  color: #64ffda;
-  transform: translateY(-2px);
+.nav-links:hover,
+.active-link {
+  color: #3b82f6; /* Blue Accent */
 }
 
-.nav-menu .active {
-  color: #64ffda;
-  border-bottom: 2px solid #64ffda;
-  padding-bottom: 4px;
+.nav-icon {
+  font-size: 1.1rem;
+  display: block;
 }
 
-@media (max-width: 768px) {
-  .navbar {
-    padding: 12px 20px;
+.mobile-icon {
+  display: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-menu {
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: #0b1120;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 40px;
+    align-items: center;
+    transition: all 0.5s ease;
   }
 
-  .nav-menu {
-    display: none;
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-item {
+    width: 100%;
+    text-align: center;
+    margin: 15px 0;
+  }
+
+  .mobile-icon {
+    display: block;
   }
 }

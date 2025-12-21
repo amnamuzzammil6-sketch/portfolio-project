@@ -1,92 +1,117 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { 
+  FaCloudSun, 
+  FaCalculator, 
+  FaCheckSquare, 
+  FaShoppingBag, 
+  FaLaptopCode, 
+  FaSortNumericDown // <--- Added Icon for Counter
+} from "react-icons/fa";
 import "./Blogs.css";
 
 export default function Blogs() {
+  
+  const caseStudies = [
+    {
+      id: 1,
+      title: "Weather App",
+      icon: <FaCloudSun />,
+      desc: "A React-based weather application that fetches real-time weather data using the OpenWeather API. It allows users to search any city and view temperature, humidity, and weather conditions with a clean, responsive UI.",
+      tech: ["React", "CSS", "OpenWeather API"],
+      learning: "API integration and state management in React"
+    },
+    {
+      id: 2,
+      title: "Calculator App",
+      icon: <FaCalculator />,
+      desc: "A simple React calculator designed for performing basic arithmetic operations. Focused on UI clarity and component-based logic.",
+      tech: ["React", "CSS"],
+      learning: "React state updates and input validation"
+    },
+    {
+      id: 3,
+      title: "To-Do App",
+      icon: <FaCheckSquare />,
+      desc: "A React task manager for adding, editing, and deleting daily tasks. Designed to demonstrate CRUD operations and component reusability.",
+      tech: ["React", "CSS", "Local Storage"],
+      learning: "Handling local state and user input"
+    },
+    {
+      id: 4,
+      title: "Counter App", // <--- NEW ADDITION
+      icon: <FaSortNumericDown />,
+      desc: "My first study in React State Management. It allows users to increment, decrement, and reset a counter, demonstrating the fundamentals of the useState hook.",
+      tech: ["React", "CSS", "Hooks (useState)"],
+      learning: "Basics of State Management and Event Handling"
+    },
+    {
+      id: 5,
+      title: "E-Commerce Layout",
+      icon: <FaShoppingBag />,
+      desc: "A front-end e-commerce website layout built with HTML and CSS. It features a responsive grid system for product display and a clean, modern design.",
+      tech: ["HTML", "CSS"],
+      learning: "Advanced CSS layout techniques"
+    },
+    {
+      id: 6,
+      title: "Portfolio Website",
+      icon: <FaLaptopCode />,
+      desc: "My personal portfolio built using React. It showcases my projects, skills, and contact details, focusing on elegant UI and smooth navigation.",
+      tech: ["React", "Framer Motion", "React Router"],
+      learning: "Routing, layout design, code optimization"
+    }
+  ];
+
   return (
     <motion.div
-      className="page-wrapper"
+      className="blogs-page"
       initial={{ opacity: 0, y: 80 }}     
       animate={{ opacity: 1, y: 0 }}      
       exit={{ opacity: 0, y: -80 }}       
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="blogs-page">
-        <header className="blogs-header">
-          <h1>My Projects & Case Studies</h1>
-          <p>
-            Here are detailed overviews of my projects — covering goals, tools,
-            technologies, and key learning experiences.
-          </p>
-        </header>
+      <header className="blogs-header">
+        <h1>My Projects & Case Studies</h1>
+        <p>
+          Detailed overviews covering goals, tools,
+          technologies, and key learning experiences.
+        </p>
+      </header>
 
-        <div className="blogs-container">
-          <div className="blog-card">
-            <h2>🌦 Weather App</h2>
-            <p>
-              A React-based weather application that fetches real-time weather data
-              using the OpenWeather API. It allows users to search any city and view
-              temperature, humidity, and weather conditions with a clean, responsive UI.
-            </p>
-            <ul>
-              <li><strong>Technologies:</strong> React, CSS, OpenWeather API</li>
-              <li><strong>Features:</strong> City search, live API data, error handling</li>
-              <li><strong>Learning:</strong> API integration and state management in React</li>
-            </ul>
-          </div>
+      <div className="blogs-grid">
+        {caseStudies.map((study, index) => (
+          <motion.div 
+            className="blog-card"
+            key={study.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1 }}
+            whileHover={{ y: -5 }}
+          >
+            <div className="card-icon-header">
+              {study.icon}
+            </div>
+            
+            <h2>{study.title}</h2>
+            <p className="card-desc">{study.desc}</p>
+            
+            <div className="card-section">
+              <strong>Technologies:</strong>
+              <div className="tech-tags">
+                {study.tech.map((t, i) => (
+                  <span key={i} className="tech-tag">{t}</span>
+                ))}
+              </div>
+            </div>
 
-          <div className="blog-card">
-            <h2>🧮 Calculator App</h2>
-            <p>
-              A simple React calculator designed for performing basic arithmetic
-              operations. Focused on UI clarity and component-based logic.
-            </p>
-            <ul>
-              <li><strong>Technologies:</strong> React, CSS</li>
-              <li><strong>Features:</strong> Add, subtract, multiply, divide, clear</li>
-              <li><strong>Learning:</strong> React state updates and input validation</li>
-            </ul>
-          </div>
+            <div className="card-section">
+              <strong>Key Learning:</strong>
+              <p className="learning-text">{study.learning}</p>
+            </div>
 
-          <div className="blog-card">
-            <h2>📝 To-Do App</h2>
-            <p>
-              A React task manager for adding, editing, and deleting daily tasks.
-              Designed to demonstrate CRUD operations and component reusability.
-            </p>
-            <ul>
-              <li><strong>Technologies:</strong> React, CSS</li>
-              <li><strong>Features:</strong> Add, edit, delete, and complete tasks</li>
-              <li><strong>Learning:</strong> Handling local state and user input</li>
-            </ul>
-          </div>
-
-          <div className="blog-card">
-            <h2>🛍 E-Commerce Layout</h2>
-            <p>
-              A front-end e-commerce website layout built with HTML and CSS. It features
-              a responsive grid system for product display and a clean, modern design.
-            </p>
-            <ul>
-              <li><strong>Technologies:</strong> HTML, CSS</li>
-              <li><strong>Features:</strong> Responsive design, product grid</li>
-              <li><strong>Learning:</strong> Advanced CSS layout techniques</li>
-            </ul>
-          </div>
-
-          <div className="blog-card">
-            <h2>💻 Portfolio Website</h2>
-            <p>
-              My personal portfolio built using React. It showcases my projects, skills,
-              and contact details, focusing on elegant UI and smooth navigation.
-            </p>
-            <ul>
-              <li><strong>Technologies:</strong> React, React Router, CSS</li>
-              <li><strong>Features:</strong> Multi-page layout, responsive design</li>
-              <li><strong>Learning:</strong> Routing, layout design, code optimization</li>
-            </ul>
-          </div>
-        </div>
+          </motion.div>
+        ))}
       </div>
     </motion.div>
   );

@@ -10,7 +10,7 @@ import Todo from "./work/Todo";
 import ScrollToTop from "./ScrollToTop";
 import Calculator from "./work/Calculator";
 import Weather from "./work/Weather";
-
+import Counter from "./work/Counter";
 function App() {
   const location = useLocation();
 
@@ -27,6 +27,7 @@ function App() {
           <Route path="/weather" element={<Weather />} />
           <Route path="/todo" element={<Todo />} />
           <Route path="/calculator" element={<Calculator />} />
+          <Route path="/counter" element={<Counter />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </main>

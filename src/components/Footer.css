@@ -1,39 +1,68 @@
-footer {
-  width: 100%;
-  background-color: #0a192f;
-  color: #8892b0;
-  text-align: center;
-  padding: 12px 0;
-  font-size: 14px;
-  border-top: 1px solid #233554;
-  position: relative; 
-  bottom: auto; 
-  left: auto;
+/* Footer.css - Balanced & Centered */
+
+.footer-balanced {
+  background-color: #0b1120; /* Matches Page Background */
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Subtle Top Line */
+  padding: 50px 20px 30px; /* Comfortable spacing */
+  font-family: 'Poppins', sans-serif;
+  margin-top: auto;
+  text-align: center; /* Centers everything */
 }
 
-footer .footer-content {
+.footer-content {
+  max-width: 600px; /* Keeps text from getting too wide */
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 20px;
 }
 
-footer .social-icons {
-  display: flex;
-  gap: 15px;
-}
-
-footer .social-icons a {
-  font-size: 18px;
-  color: #64ffda;
-  transition: 0.3s ease;
-}
-
-footer .social-icons a:hover {
-  transform: translateY(-3px);
-  opacity: 0.8;
-}
-
-footer p {
+/* 1. Heading & Text */
+.footer-balanced h3 {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
   margin: 0;
+}
+
+.footer-balanced p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* 2. Social Icons */
+.footer-socials {
+  display: flex;
+  gap: 25px;
+  margin: 10px 0 20px; /* Space around icons */
+}
+
+.footer-socials a {
+  color: #cbd5e1;
+  font-size: 1.6rem; /* Slightly larger icons */
+  transition: all 0.3s ease;
+  padding: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03); /* Subtle circle background */
+}
+
+.footer-socials a:hover {
+  color: #3b82f6; /* Blue Icon */
+  background: rgba(59, 130, 246, 0.1); /* Blue Glow Background */
+  transform: translateY(-5px);
+}
+
+/* 3. Bottom Copyright */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  width: 100%;
+  padding-top: 20px;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.footer-bottom strong {
+  color: #e2e8f0;
 }

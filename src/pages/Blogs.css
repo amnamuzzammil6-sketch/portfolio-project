@@ -1,85 +1,151 @@
+/* Blogs.css - Case Study & Project Theme */
+
+/* 1. Main Page Background */
 .blogs-page {
-  width: 100%;
+  background-color: #0b1120; /* Deep Slate - Matches Home/Portfolio */
   min-height: 100vh;
-  background: #0d1117;
+  padding: 120px 10% 80px; /* Top padding clears the fixed Navbar */
+  font-family: 'Poppins', sans-serif;
   color: white;
-  padding: 80px 10%;
   box-sizing: border-box;
 }
 
+/* 2. Page Header */
 .blogs-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 
 .blogs-header h1 {
   font-size: 2.5rem;
-  color: white;
-  margin-bottom: 10px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #fff;
+  letter-spacing: -0.5px;
 }
 
 .blogs-header p {
-  font-size: 1rem;
-  color: #9ca3af;
-  max-width: 700px;
+  color: #94a3b8; /* Soft Slate Grey */
+  font-size: 1.1rem;
+  max-width: 650px;
   margin: 0 auto;
   line-height: 1.6;
 }
 
-.blogs-container {
+/* 3. Grid Layout */
+.blogs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  width: 100%;
 }
 
+/* 4. Card Styling */
 .blog-card {
-  background: #161b22;
-  border: 1px solid #30363d;
-  border-radius: 10px;
-  padding: 25px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  background: #1e293b; /* Card Background */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  position: relative;
+  height: 100%; /* Ensures uniform height */
 }
 
 .blog-card:hover {
+  border-color: #3b82f6; /* Blue Glow on Hover */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
   transform: translateY(-5px);
-  border-color: #3b82f6;
 }
 
+/* 5. Icon Header (The Blue Box) */
+.card-icon-header {
+  font-size: 1.8rem;
+  color: #3b82f6;
+  margin-bottom: 20px;
+  background: rgba(59, 130, 246, 0.1); /* Transparent Blue */
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+/* 6. Card Typography */
 .blog-card h2 {
   font-size: 1.4rem;
-  color: #3b82f6;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  color: #fff;
+  font-weight: 600;
 }
 
-.blog-card p {
-  color: #d1d5db;
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 15px;
-}
-
-.blog-card ul {
-  list-style: none;
-  padding: 0;
-}
-
-.blog-card li {
+.card-desc {
+  color: #cbd5e1;
   font-size: 0.95rem;
-  color: #9ca3af;
-  margin-bottom: 6px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  flex-grow: 1; /* Pushes the sections below to the bottom */
 }
 
-.blog-card strong {
-  color: #3b82f6;
+/* 7. Sections (Technologies & Learning) */
+.card-section {
+  margin-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Divider Line */
+  padding-top: 15px;
 }
 
+.card-section strong {
+  display: block;
+  font-size: 0.8rem;
+  color: #94a3b8; /* Muted label text */
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+/* 8. Tech Tags (The Pills) */
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tag {
+  background: #0f172a; /* Darker background for contrast */
+  color: #3b82f6; /* Blue Text */
+  font-size: 0.8rem;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* 9. Key Learning Text */
+.learning-text {
+  font-size: 0.9rem;
+  color: #e2e8f0; /* Brighter white for emphasis */
+  font-style: italic;
+  line-height: 1.5;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px;
+  border-radius: 8px;
+  border-left: 3px solid #3b82f6; /* Blue Accent Bar */
+}
+
+/* 10. Mobile Responsiveness */
 @media (max-width: 768px) {
   .blogs-page {
-    padding: 60px 5%;
+    padding: 100px 20px 60px;
   }
 
   .blogs-header h1 {
     font-size: 2rem;
+  }
+  
+  .blogs-grid {
+    grid-template-columns: 1fr; /* Stack cards on phone */
   }
 }

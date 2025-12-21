@@ -1,0 +1,115 @@
+/* Counter.css - Executive Theme */
+
+/* 1. Full Page Centering */
+.counter-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #0b1120; /* Deep Slate (Matches Home) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* 2. The Main Card */
+.counter-card {
+  background: #1e293b; /* Professional Slate Grey */
+  padding: 50px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  max-width: 400px;
+  width: 90%;
+}
+
+/* 3. Text Styling */
+.counter-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.counter-desc {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+}
+
+/* 4. The Number Display */
+.number-display {
+  font-size: 5rem;
+  font-weight: 700;
+  margin: 20px 0 40px;
+  min-height: 100px; /* Prevents jumping */
+}
+
+/* Color logic: Blue for positive, Red for negative */
+.positive {
+  color: #3b82f6; /* Executive Blue */
+}
+
+.negative {
+  color: #ef4444; /* Error Red (if count goes below 0) */
+}
+
+/* 5. Button Group */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.btn-control {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; /* Circle buttons */
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+/* Specific Button Colors */
+.inc {
+  background-color: #3b82f6; /* Blue */
+}
+
+.dec {
+  background-color: #475569; /* Grey */
+}
+
+.reset {
+  background-color: #ef4444; /* Red */
+}
+
+/* Hover Effects */
+.btn-control:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.2);
+}
+
+.btn-control:active {
+  transform: scale(0.95);
+}
+
+/* 6. Back Link */
+.back-link {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #fff;
+}

@@ -1,59 +1,175 @@
-.todo-container {
+/* Todo.css - Executive Theme */
+
+/* 1. Page Layout (Matches Calculator Fix) */
+.todo-page {
   width: 100%;
-  max-width: 600px;
-  margin: 0 auto 40px;
-  background: #1e293b;
-  padding: 30px;
-  border-radius: 8px;
+  min-height: 100vh;
+  background-color: #0b1120; /* Deep Slate Background */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Aligns to top, not center, for long lists */
+  font-family: 'Poppins', sans-serif;
+  
+  /* IMPORTANT: Clears the Navbar */
+  padding-top: 120px; 
+  padding-bottom: 60px;
+  box-sizing: border-box;
+}
+
+/* 2. Main Card */
+.todo-card {
+  background: #1e293b; /* Professional Card Grey */
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  width: 100%;
+  max-width: 500px; /* Slightly wider than calculator */
   text-align: center;
-  color: white;
-  box-shadow: rgba(0,0,0,0.35) 0px 5px 20px;
 }
 
-.todo-container h1 { margin-bottom: 20px; color: #00bcd4; }
+/* 3. Typography */
+.todo-title {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
 
-.todo-input { display: flex; justify-content: center; gap: 10px; }
+.todo-desc {
+  font-size: 0.95rem;
+  color: #94a3b8; /* Slate Text */
+  margin-bottom: 30px;
+}
 
-.todo-input input {
-  width: 70%;
-  padding: 10px;
-  border: none;
+/* 4. Input Section */
+.todo-input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.todo-input-group input {
+  flex: 1;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background-color: #0f172a; /* Dark Input Background */
+  color: white;
+  font-size: 1rem;
   outline: none;
-  border-radius: 4px;
+  transition: border-color 0.3s ease;
 }
 
-.todo-input button {
-  background-color: #00bcd4;
+.todo-input-group input:focus {
+  border-color: #3b82f6; /* Blue Focus */
+}
+
+.todo-input-group button {
+  background-color: #3b82f6; /* Blue Button */
   color: white;
-  padding: 10px 18px;
   border: none;
+  padding: 0 20px;
+  border-radius: 8px;
   cursor: pointer;
-  border-radius: 4px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
 }
 
-.todo-input button:hover { background-color: #0097a7; }
+.todo-input-group button:hover {
+  background-color: #2563eb;
+}
 
-.todo-list { list-style: none; margin-top: 20px; padding: 0; }
+/* 5. List Items */
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+  text-align: left;
+}
+
+.no-task {
+  color: #64748b;
+  text-align: center;
+  font-style: italic;
+  margin-top: 20px;
+}
 
 .todo-item {
-  background: #0f172a;
-  margin: 10px 0;
-  padding: 12px;
-  border-radius: 4px;
+  background-color: #334155; /* Item Background */
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #fff;
+  transition: all 0.2s ease;
+  cursor: pointer; /* Suggests clickable */
 }
 
+.todo-item:hover {
+  transform: translateX(5px);
+  background-color: #475569;
+}
+
+/* Completed State */
+.todo-item.completed .task-text {
+  text-decoration: line-through;
+  color: #94a3b8; /* Dimmed Text */
+}
+
+.task-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+}
+
+.check-icon {
+  color: #10b981; /* Green Checkmark */
+  font-size: 0.9rem;
+}
+
+/* Delete Button */
 .delete-btn {
-  background: red;
+  background: transparent;
   border: none;
-  color: white;
-  padding: 6px 12px;
+  color: #ef4444; /* Red Trash Icon */
   cursor: pointer;
-  border-radius: 4px;
+  font-size: 1rem;
+  padding: 5px;
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
 }
 
-.delete-btn:hover { background: darkred; }
+.delete-btn:hover {
+  transform: scale(1.2);
+  color: #fca5a5;
+}
 
-.no-task { color: gray; font-style: italic; }
+/* 6. Back Link */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #3b82f6;
+}
+
+/* Mobile Fix */
+@media (max-width: 480px) {
+  .todo-card {
+    padding: 25px;
+  }
+}

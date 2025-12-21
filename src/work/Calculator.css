@@ -1,69 +1,150 @@
-.calculator-page {
+/* Calculator.css - Complete Fixed Version */
+
+/* 1. Page Background & Layout */
+.calculator-container {
+  width: 100%;
+  min-height: 100vh; /* Takes full screen height */
+  background-color: #0b1120; /* Deep Slate - Matches Home */
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: calc(100vh - 130px);
-  padding-bottom: 60px;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: #f8f9fa;
+  align-items: center; /* Centers the calculator vertically */
+  font-family: 'Poppins', sans-serif;
+  
+  /* --- THE FIX: Pushes calculator down below the 80px Navbar --- */
+  padding-top: 100px; 
+  padding-bottom: 40px;
+  box-sizing: border-box; 
 }
 
-.calculator-box {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+/* 2. Main Calculator Card */
+.calculator-card {
+  background: #1e293b; /* Professional Slate Grey Card */
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); /* Deep Shadow */
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle Glass Border */
   width: 100%;
-  max-width: 350px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
+  max-width: 380px;
+  text-align: center;
+  position: relative; /* Keeps it stable */
 }
 
-.calculator-title { font-size: 2rem; color: #00bcd4; margin-bottom: 20px; }
+/* 3. Typography */
+.calculator-title {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
 
+.calculator-desc {
+  font-size: 0.9rem;
+  color: #94a3b8; /* Muted Slate Text */
+  margin-bottom: 25px;
+}
+
+/* 4. The Screen (Input) */
 .calculator-screen {
   width: 100%;
-  padding: 15px;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+  height: 70px;
+  background-color: #0f172a; /* Darker than card background */
+  border: 1px solid #334155;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  color: #fff;
+  font-size: 2.2rem;
   text-align: right;
-  background: #f1f1f1;
-  color: #333;
+  padding: 0 15px;
+  margin-bottom: 20px;
+  outline: none;
+  font-family: 'Courier New', monospace; /* Digital/Code Look */
+  box-sizing: border-box;
 }
 
-.calculator-buttons {
+.calculator-screen::placeholder {
+  color: #334155;
+}
+
+/* 5. Button Grid Layout */
+.calculator-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr); /* 4 Equal Columns */
   gap: 12px;
-  width: 100%;
+  margin-bottom: 30px;
 }
 
+/* Base Button Style */
 .calc-btn {
-  padding: 15px 0;
-  background: #f1f1f1;
-  border-radius: 8px;
-  border: none;
+  padding: 15px;
   font-size: 1.2rem;
-}
-
-.calc-btn:hover { background: #e0f7fa; color: #00bcd4; }
-
-.calc-btn-equal { background: #00bcd4; color: white; }
-
-.calc-btn-equal:hover { background: #0097a7; }
-
-.calc-btn-clear {
-  grid-column: span 4;
-  padding: 15px 0;
-  background: #ff4d4d;
-  color: white;
+  font-weight: 600;
   border: none;
   border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.calc-btn-clear:hover { background: #e60000; }
+.calc-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.calc-btn:active {
+  transform: scale(0.95);
+}
+
+/* Specific Button Colors */
+.calc-btn-num {
+  background-color: #334155; /* Dark Grey Keys for Numbers */
+}
+
+.calc-btn-operator {
+  background-color: #0ea5e9; /* Sky Blue for Operators (+ - * /) */
+}
+
+.calc-btn-equal {
+  background-color: #3b82f6; /* Royal Blue for Equals */
+  grid-row: span 1; 
+}
+
+/* Clear Button (Spans full width) */
+.calc-btn-clear {
+  grid-column: span 4; /* Takes up all 4 columns */
+  background-color: #ef4444; /* Red for Clear */
+  font-size: 1rem;
+  gap: 8px;
+  letter-spacing: 1px;
+}
+
+/* 6. Back Link */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  margin-top: 10px;
+}
+
+.back-link:hover {
+  color: #3b82f6; /* Blue hover effect */
+}
+
+/* 7. Mobile Responsiveness */
+@media (max-width: 480px) {
+  .calculator-card {
+    padding: 25px;
+    max-width: 90%;
+  }
+
+  .calc-btn {
+    padding: 12px;
+    font-size: 1.1rem;
+  }
+}

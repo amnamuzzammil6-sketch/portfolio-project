@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { User, Mail, MessageSquare } from "lucide-react";
+import { FaUser, FaEnvelope, FaPaperPlane, FaCheckCircle } from "react-icons/fa"; // Switched to react-icons for consistency
 import "./Contact.css";
 
 export default function Contact() {
@@ -12,17 +12,18 @@ export default function Contact() {
   const [success, setSuccess] = useState("waiting");
   const [error, setError] = useState("");
 
-  // Handle input field changes
+  // Handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Handle form submission
+  // Handle Google Form Submission
   const handleFormSubmission = (e) => {
     e.preventDefault();
     setSuccess("loading");
 
+    // YOUR GOOGLE FORM LINK
     const formUrl =
       "https://docs.google.com/forms/d/e/1FAIpQLScxggsRf0dxF8CmARx2URIsZrjNyUdrRYcMpaRYxh4ZJJGoog/formResponse";
 
@@ -39,71 +40,97 @@ export default function Contact() {
       .then(() => {
         setSuccess("submitted");
         setFormData({ username: "", email: "", message: "" });
+        // Reset success message after 5 seconds
+        setTimeout(() => setSuccess("waiting"), 5000);
       })
-      .catch((error) => setError(error.message));
+      .catch((error) => {
+        setError("Something went wrong. Please try again.");
+        setSuccess("waiting");
+      });
   };
 
   return (
-    <motion.div
-      className="contact-page"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      <h2 className="contact-title">Contact Me</h2>
-      <p className="contact-subtitle">I’d love to hear from you!</p>
-
-      <form onSubmit={handleFormSubmission} className="contact-form">
-        <div className="input-group">
-          <User className="input-icon" />
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            placeholder="Enter Your Name"
-            onChange={handleInputChange}
-            required
-          />
+    <div className="contact-page">
+      <motion.div
+        className="contact-container"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="contact-header">
+          <h1>Get in Touch</h1>
+          <p>
+            Have a question or want to work together? Drop me a message below.
+          </p>
         </div>
 
-        <div className="input-group">
-          <Mail className="input-icon" />
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            placeholder="Enter Your Email"
-            onChange={handleInputChange}
-            required
-          />
-        </div>
+        <form onSubmit={handleFormSubmission} className="contact-form">
+          {/* Name Input */}
+          <div className="input-group">
+            <div className="icon-wrapper">
+              <FaUser />
+            </div>
+            <input
+              type="text"
+              name="username"
+              value={formData.username}
+              placeholder="Your Name"
+              onChange={handleInputChange}
+              required
+            />
+          </div>
 
-        <div className="input-group">
-          <MessageSquare className="input-icon" />
-          <textarea
-            name="message"
-            value={formData.message}
-            placeholder="Enter Your Message..."
-            rows={5}
-            onChange={handleInputChange}
-            required
-          ></textarea>
-        </div>
+          {/* Email Input */}
+          <div className="input-group">
+            <div className="icon-wrapper">
+              <FaEnvelope />
+            </div>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              placeholder="Your Email"
+              onChange={handleInputChange}
+              required
+            />
+          </div>
 
-        <motion.button
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.98 }}
-          type="submit"
-          className="contact-btn"
-        >
-          {success === "loading" ? "Sending..." : "Send Message"}
-        </motion.button>
+          {/* Message Input */}
+          <div className="input-group textarea-group">
+            <textarea
+              name="message"
+              value={formData.message}
+              placeholder="How can I help you?"
+              rows={5}
+              onChange={handleInputChange}
+              required
+            ></textarea>
+          </div>
 
-        {success === "submitted" && (
-          <p className="success-text">Your message was sent successfully!</p>
-        )}
-        {error && <p className="error-text">❌ {error}</p>}
-      </form>
-    </motion.div>
+          {/* Submit Button */}
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            type="submit"
+            className={`contact-btn ${success === "submitted" ? "btn-success" : ""}`}
+            disabled={success === "loading" || success === "submitted"}
+          >
+            {success === "loading" ? (
+              "Sending..."
+            ) : success === "submitted" ? (
+              <>
+                Message Sent <FaCheckCircle style={{ marginLeft: "8px" }} />
+              </>
+            ) : (
+              <>
+                Send Message <FaPaperPlane style={{ marginLeft: "8px" }} />
+              </>
+            )}
+          </motion.button>
+
+          {error && <p className="error-text">{error}</p>}
+        </form>
+      </motion.div>
+    </div>
   );
 }

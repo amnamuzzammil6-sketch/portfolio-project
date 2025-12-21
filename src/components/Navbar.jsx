@@ -1,56 +1,77 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import {
-  FaHome,
-  FaCogs,
-  FaBriefcase,
-  FaBlog,
-  FaEnvelope,
+import { 
+  FaHome, 
+  FaBriefcase, 
+  FaBlog, 
+  FaEnvelope, 
+  FaBars, 
+  FaTimes 
 } from "react-icons/fa";
 import "./Navbar.css";
 
 export default function Navbar() {
+  const [click, setClick] = useState(false);
+
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
   return (
     <nav className="navbar">
-      <div className="nav-left">
-        <h1 className="logo">Amna Muzzammil</h1>
-      </div>
+      {/* Container limits width and handles Flex alignment */}
+      <div className="navbar-container">
+        
+        {/* Corrected Logo: Full Name */}
+<NavLink to="/" className="logo" onClick={closeMobileMenu}>
+  Amna <span className="logo-highlight"> Muzzammil</span>
+</NavLink>
 
-      <ul className="nav-menu">
-        <li>
-          <NavLink
-            to="/"
-            end
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            <FaHome /> Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/portfolio"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            <FaBriefcase /> Portfolio
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/blogs"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            <FaBlog /> Blogs
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/contact"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            <FaEnvelope /> Contact
-          </NavLink>
-        </li>
-      </ul>
+        <div className="mobile-icon" onClick={handleClick}>
+          {click ? <FaTimes /> : <FaBars />}
+        </div>
+
+        <ul className={click ? "nav-menu active" : "nav-menu"}>
+          <li className="nav-item">
+            <NavLink
+              to="/"
+              className={({ isActive }) => "nav-links" + (isActive ? " active-link" : "")}
+              onClick={closeMobileMenu}
+            >
+              <FaHome className="nav-icon" /> Home
+            </NavLink>
+          </li>
+          
+          <li className="nav-item">
+            <NavLink
+              to="/portfolio"
+              className={({ isActive }) => "nav-links" + (isActive ? " active-link" : "")}
+              onClick={closeMobileMenu}
+            >
+              <FaBriefcase className="nav-icon" /> Portfolio
+            </NavLink>
+          </li>
+
+          <li className="nav-item">
+            <NavLink
+              to="/blogs"
+              className={({ isActive }) => "nav-links" + (isActive ? " active-link" : "")}
+              onClick={closeMobileMenu}
+            >
+              <FaBlog className="nav-icon" /> Blogs
+            </NavLink>
+          </li>
+
+          <li className="nav-item">
+            <NavLink
+              to="/contact"
+              className={({ isActive }) => "nav-links" + (isActive ? " active-link" : "")}
+              onClick={closeMobileMenu}
+            >
+              <FaEnvelope className="nav-icon" /> Contact
+            </NavLink>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
-}  
+}
