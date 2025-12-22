@@ -5,21 +5,25 @@ import { FaExternalLinkAlt, FaGoogle, FaAward , FaGraduationCap} from "react-ico
 import "./Portfolio.css";
 
 // --- IMPORTS ---
-// Ensure these match your actual filenames in 'src/assets'
 import googleDataImg from "../assets/google-data-analytics.jpg";
 import googleAIImg from "../assets/google-ai.png";
 import googlePromptingImg from "../assets/google-prompting-essential.jpg";
-//import banoQabilImg from "../assets/bano-qabil.jpg"; 
 
 export default function Portfolio() {
   
-  // 1. DATA: Your Projects
+  // 1. DATA: Your Projects (UPDATED WITH REGISTRATION PORTAL)
   const projects = [
     {
       title: "Portfolio Website",
       desc: "Built from scratch using React.js and Framer Motion.",
       link: "/",
       external: false,
+    },
+    {
+      title: "Student Registration Portal", // <--- NEW ADDITION
+      desc: "A professional data entry system with LocalStorage persistence.",
+      link: "https://student-data-portal.vercel.app/",
+      external: true, 
     },
     {
       title: "Weather Dashboard",
@@ -52,6 +56,7 @@ export default function Portfolio() {
       external: false,
     },
   ];
+
   const education = [
     {
       degree: "Bachelor of Business and Information Technology (Hons)",
@@ -61,15 +66,14 @@ export default function Portfolio() {
       desc: "Specializing in Data Analytics and Web Engineering.",
     },
     {
-      degree: "FSc Pre-Medical", // <--- UPDATED
+      degree: "FSc Pre-Medical",
       school: "Superior College",
       year: "2023 - 2024",
       grade: "Grade: A+",
-      desc: "Built a strong foundation in Biology and Physics before pivoting to Technology.", // <--- UPDATED STORY
+      desc: "Built a strong foundation in Biology and Physics before pivoting to Technology.",
     }
   ];
 
-  // 2. DATA: Certifications
   const certifications = [
     {
       title: "Google Data Analytics Professional Certificate",
@@ -77,7 +81,7 @@ export default function Portfolio() {
       status: "Completed",
       desc: "Mastered data cleaning, analysis with R, SQL queries, and Tableau visualization.",
       link: "https://coursera.org/share/d5c7f9f8f625f3b52f7dbeb4e6f87eb8",
-      image: googleDataImg // Clicking this image opens google-data.jpg
+      image: googleDataImg 
     },
     {
       title: "Frontend Web Development",
@@ -85,7 +89,6 @@ export default function Portfolio() {
       status: "Completed",
       desc: "Comprehensive training in HTML5, CSS, JavaScript, and responsive web design.",
       link: "#", 
-      //image: banoQabilImg // Clicking this image opens bano-qabil.jpg
     },
     {
       title: "Google UX Design Professional Certificate",
@@ -93,7 +96,7 @@ export default function Portfolio() {
       status: "In Progress", 
       desc: "Currently mastering wireframing, prototyping in Figma, and user research.",
       link: "https://www.coursera.org/professional-certificates/google-ux-design",
-      image: "https://images.credly.com/size/340x340/images/116de714-256d-4763-952f-87d46b86584c/GCC_badge_UX_1000x1000.png" // Clicking this opens the Badge URL
+      image: "https://images.credly.com/size/340x340/images/116de714-256d-4763-952f-87d46b86584c/GCC_badge_UX_1000x1000.png" 
     },
     {
       title: "Google AI Essentials",
@@ -101,7 +104,7 @@ export default function Portfolio() {
       status: "Completed",
       desc: "Foundational knowledge of Artificial Intelligence principles and ethics.",
       link: "https://coursera.org/share/9f83e6b2b64e99377b2cbd6f63c5b3c3",
-      image: googleAIImg // Clicking this image opens google-ai.png
+      image: googleAIImg 
     },
     {
       title: "Generative AI: Prompt Engineering",
@@ -109,7 +112,7 @@ export default function Portfolio() {
       status: "Completed",
       desc: "Advanced techniques for prompting LLMs to generate high-quality outputs.",
       link: "https://coursera.org/share/c6a6ca2fc3c6ee4436171078b0262af2",
-      image: googlePromptingImg // Clicking this image opens google-prompting.jpg
+      image: googlePromptingImg 
     }
   ];
 
@@ -131,7 +134,6 @@ export default function Portfolio() {
         </p>
       </div>
 
-      {/* SECTION 1: SKILLS */}
       <section className="skills-section">
         <h2>The Tech Stack</h2>
         <div className="skills-grid">
@@ -153,7 +155,7 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
-      {/* 2. EDUCATION (Grid Layout) */}
+
       <section className="education-section">
         <h2>Education History</h2>
         <div className="education-grid">
@@ -161,11 +163,10 @@ export default function Portfolio() {
             <motion.div 
               className="education-card"
               key={index}
-              initial={{ opacity: 0, y: 20 }} // Changed to y axis animation to match others
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              {/* Icon on Top */}
               <div className="edu-icon-box">
                 <FaGraduationCap />
               </div>
@@ -184,7 +185,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* SECTION 3: CERTIFICATIONS */}
       <section className="cert-section">
         <h2>Professional Certifications</h2>
         <div className="cert-grid">
@@ -194,9 +194,6 @@ export default function Portfolio() {
               key={index}
               whileHover={{ scale: 1.02 }}
             >
-              {/* --- MASTER IMAGE LINK --- */}
-              {/* This 'a' tag wraps the image. href is set to {cert.image}. */}
-              {/* This forces EVERY image to open in a new tab when clicked. */}
               <a href={cert.image} target="_blank" rel="noreferrer" className="cert-img-wrapper">
                 <img src={cert.image} alt={cert.title} className="cert-img" />
               </a>
@@ -205,8 +202,6 @@ export default function Portfolio() {
                 <div className="cert-header">
                   {cert.issuer.includes("Google") ? <FaGoogle className="google-icon" /> : <FaAward className="google-icon" />}
                   <span>{cert.issuer}</span>
-
-                  {/* "In Progress" Badge */}
                   {cert.status === "In Progress" && (
                     <span style={{ 
                       marginLeft: "auto", 
@@ -225,8 +220,6 @@ export default function Portfolio() {
                 <h3>{cert.title}</h3>
                 <p>{cert.desc}</p>
                 
-                {/* --- MASTER TEXT LINK --- */}
-                {/* If In Progress -> Link to Curriculum. If Completed -> Link to Verify. */}
                 {cert.status === "In Progress" ? (
                    <a href={cert.link} target="_blank" rel="noreferrer" className="cert-link" style={{color: "#eab308"}}>
                      View Curriculum <FaExternalLinkAlt />
@@ -240,14 +233,12 @@ export default function Portfolio() {
                     Credential Verified
                   </span>
                 )}
-
               </div>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* SECTION 4: PROJECTS */}
       <section className="projects-section">
         <h2>Project Library</h2>
         <div className="projects-grid">

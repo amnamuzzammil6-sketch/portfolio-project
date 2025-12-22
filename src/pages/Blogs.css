@@ -149,3 +149,24 @@
     grid-template-columns: 1fr; /* Stack cards on phone */
   }
 }
+
+
+.card-link-container {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+}
+
+.card-external-link {
+    color: #64ffda; /* Professional Cyan/Teal color */
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.card-external-link:hover {
+    color: #007bff;
+    transform: translateX(5px); /* Small nudge effect */
+}

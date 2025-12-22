@@ -6,7 +6,8 @@ import {
   FaCheckSquare, 
   FaShoppingBag, 
   FaLaptopCode, 
-  FaSortNumericDown // <--- Added Icon for Counter
+  FaSortNumericDown,
+  FaUserGraduate 
 } from "react-icons/fa";
 import "./Blogs.css";
 
@@ -39,7 +40,7 @@ export default function Blogs() {
     },
     {
       id: 4,
-      title: "Counter App", // <--- NEW ADDITION
+      title: "Counter App",
       icon: <FaSortNumericDown />,
       desc: "My first study in React State Management. It allows users to increment, decrement, and reset a counter, demonstrating the fundamentals of the useState hook.",
       tech: ["React", "CSS", "Hooks (useState)"],
@@ -60,6 +61,14 @@ export default function Blogs() {
       desc: "My personal portfolio built using React. It showcases my projects, skills, and contact details, focusing on elegant UI and smooth navigation.",
       tech: ["React", "Framer Motion", "React Router"],
       learning: "Routing, layout design, code optimization"
+    },
+    {
+      id: 7,
+      title: "Student Data Portal",
+      icon: <FaUserGraduate />, 
+      desc: "A professional data entry system with persistent storage. It features real-time validation to ensure data quality and a mobile-responsive layout.",
+      tech: ["JavaScript", "LocalStorage", "CSS"],
+      learning: "Mastering data integrity and persistent web storage."
     }
   ];
 
