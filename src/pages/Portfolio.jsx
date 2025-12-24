@@ -1,17 +1,24 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FaExternalLinkAlt, FaGoogle, FaAward , FaGraduationCap} from "react-icons/fa";
+import { 
+  FaExternalLinkAlt, FaGoogle, FaAward, FaGraduationCap, 
+  FaPython, FaCode, FaLightbulb, FaDatabase 
+} from "react-icons/fa";
 import "./Portfolio.css";
 
-// --- IMPORTS ---
+// --- ASSET IMPORTS ---
 import googleDataImg from "../assets/google-data-analytics.jpg";
 import googleAIImg from "../assets/google-ai.png";
 import googlePromptingImg from "../assets/google-prompting-essential.jpg";
+import googleUxImg from "../assets/google-ux-design.png";
+import buildUiImg from "../assets/build-user-interfaces.png";
+import jobImg from "../assets/job.png";
+import pythonImg from "../assets/python.png";
 
 export default function Portfolio() {
   
-  // 1. DATA: Your Projects (UPDATED WITH REGISTRATION PORTAL)
+  // --- 1. PROJECTS DATA ---
   const projects = [
     {
       title: "Portfolio Website",
@@ -20,46 +27,47 @@ export default function Portfolio() {
       external: false,
     },
     {
-      title: "Student Registration Portal", // <--- NEW ADDITION
-      desc: "A professional data entry system with LocalStorage persistence.",
+      title: "Student Data Portal",
+      desc: "Professional data entry system with LocalStorage persistence.",
       link: "https://student-data-portal.vercel.app/",
       external: true, 
     },
     {
       title: "Weather Dashboard",
-      desc: "Fetches live climate data via API.",
+      desc: "Fetches live climate data via OpenWeather API.",
       link: "/weather",
       external: false,
     },
     {
       title: "E-commerce Interface",
-      desc: "A pure HTML/CSS responsive layout deployed on Vercel.",
+      desc: "Responsive HTML/CSS layout deployed on Vercel.",
       link: "https://e-commerce-website-lemon-iota-85.vercel.app/",
       external: true, 
     },
     {
       title: "Task Manager (To-Do)",
-      desc: "Uses Local Storage to persist data.",
+      desc: "CRUD application using Local Storage for data persistence.",
       link: "/todo",
       external: false,
     },
     {
       title: "React Calculator",
-      desc: "A logic-heavy react component.",
+      desc: "A logic-heavy component focused on state updates.",
       link: "/calculator",
       external: false,
     },
     {
       title: "Counter App", 
-      desc: "My first study in React State Management.",
+      desc: "Foundational study in React Hooks and Event Handling.",
       link: "/counter",
       external: false,
     },
   ];
 
+  // --- 2. EDUCATION DATA ---
   const education = [
     {
-      degree: "Bachelor of Business and Information Technology (Hons)",
+      degree: "Bachelor of Business & IT (Hons)",
       school: "IBIT, University of the Punjab",
       year: "2024 - 2028 (Expected)",
       grade: "CGPA: 3.24 / 4.00",
@@ -74,103 +82,114 @@ export default function Portfolio() {
     }
   ];
 
+  // --- 3. CERTIFICATIONS DATA ---
   const certifications = [
     {
-      title: "Google Data Analytics Professional Certificate",
-      issuer: "Google / Coursera",
-      status: "Completed",
-      desc: "Mastered data cleaning, analysis with R, SQL queries, and Tableau visualization.",
+      title: "Google Data Analytics Professional",
+      issuer: "Google",
       link: "https://coursera.org/share/d5c7f9f8f625f3b52f7dbeb4e6f87eb8",
       image: googleDataImg 
     },
     {
-      title: "Frontend Web Development",
-      issuer: "Bano Qabil 4.0",
-      status: "Completed",
-      desc: "Comprehensive training in HTML5, CSS, JavaScript, and responsive web design.",
-      link: "#", 
+      title: "Google UX Design Professional",
+      issuer: "Google",
+      link: "https://coursera.org/share/d053f0b8c2c230b110384f1f99553ca2",
+      image: googleUxImg 
     },
     {
-      title: "Google UX Design Professional Certificate",
-      issuer: "Google / Coursera",
-      status: "In Progress", 
-      desc: "Currently mastering wireframing, prototyping in Figma, and user research.",
-      link: "https://www.coursera.org/professional-certificates/google-ux-design",
-      image: "https://images.credly.com/size/340x340/images/116de714-256d-4763-952f-87d46b86584c/GCC_badge_UX_1000x1000.png" 
+      title: "Crash Course on Python",
+      issuer: "Google",
+      link: "https://coursera.org/share/5d42467ab815c9af43c5c54cdc1bf6c6",
+      image: pythonImg 
+    },
+    {
+      title: "Accelerate Your Job Search with AI",
+      issuer: "Google",
+      link: "https://coursera.org/share/d011f3a9deb54dd086f3edcbd31903a0",
+      image: jobImg 
+    },
+    {
+      title: "Build Dynamic User Interfaces",
+      issuer: "Google",
+      link: "https://coursera.org/share/4036bd241efcb80dd2bcb0ea0a296f52",
+      image: buildUiImg 
     },
     {
       title: "Google AI Essentials",
       issuer: "Google",
-      status: "Completed",
-      desc: "Foundational knowledge of Artificial Intelligence principles and ethics.",
       link: "https://coursera.org/share/9f83e6b2b64e99377b2cbd6f63c5b3c3",
       image: googleAIImg 
     },
     {
       title: "Generative AI: Prompt Engineering",
-      issuer: "Coursera",
-      status: "Completed",
-      desc: "Advanced techniques for prompting LLMs to generate high-quality outputs.",
+      issuer: "Google", 
       link: "https://coursera.org/share/c6a6ca2fc3c6ee4436171078b0262af2",
       image: googlePromptingImg 
+    },
+    {
+      title: "Frontend Web Development",
+      issuer: "Bano Qabil 4.0",
+      link: "#",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6vI2YvXy8Z8YjC6Z8U8x7e2Q6vI2YvXy8Z8YjC6Z8U8x7e2Q&s"
     }
   ];
 
   return (
-    <motion.div
-      className="portfolio-page"
-      initial={{ opacity: 0, y: 80 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -80 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-    >
+    <motion.div className="portfolio-page" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      
+      {/* HEADER: Updated to be simple and specific */}
       <div className="portfolio-header">
-        <h1>My Work & Toolset</h1>
-        <p className="portfolio-subtitle">
-          I am building a skillset that covers the entire data lifecycle.
-          <br />
-          From <strong>querying databases with SQL</strong> and <strong>analyzing trends in R</strong>, 
-          to building interactive interfaces with <strong>React.js</strong>.
-        </p>
+        <motion.h1 initial={{ y: -20 }} animate={{ y: 0 }}>Projects & Professional Skills</motion.h1>
       </div>
 
+      {/* --- SECTION 1: SKILLS BENTO GRID --- */}
       <section className="skills-section">
-        <h2>The Tech Stack</h2>
-        <div className="skills-grid">
-          <div className="skill-box">
-            <h3>Data Analysis & Viz</h3>
-            <p><strong>R Programming</strong>, <strong>Tableau</strong>, <strong>SQL</strong>, Google Data Analytics Certified</p>
+        <div className="section-title-area">
+          <h2>Core Competencies</h2>
+        </div>
+        
+        <div className="skills-bento-grid">
+          <div className="skill-card main-skill">
+            <FaPython className="skill-icon" />
+            <h3>Data & Python</h3>
+            <p>Basic Python, R Programming, SQL Querying, Excel and Tableau.</p>
           </div>
-          <div className="skill-box">
-            <h3>Front-end Web Development</h3>
-            <p><strong>React.js</strong>, <strong>Google UX Design</strong>, JavaScript , HTML5, CSS</p>
+          
+          <div className="skill-card">
+            <FaCode className="skill-icon" />
+            <h3>Web Development</h3>
+            <p>React.js, JavaScript, HTML5/CSS.</p>
           </div>
-          <div className="skill-box">
-            <h3>AI & Optimization</h3>
-            <p><strong>Prompt Engineering</strong>, <strong>Google AI Essentials</strong>, Business Intelligence</p>
+
+          <div className="skill-card">
+            <FaDatabase className="skill-icon" />
+            <h3>Academic Foundation</h3>
+            <p>C, C++, Java, Digital Logic Design, Accounting & Economics.</p>
           </div>
-          <div className="skill-box">
-            <h3>University Coursework</h3>
-            <p><strong>C / C++ / Java</strong>, <strong>Digital Logic Design</strong>, Accounting & Economics</p>
+
+          <div className="skill-card">
+            <FaLightbulb className="skill-icon" />
+            <h3>Soft Skills</h3>
+            <p>Professional Communication, Problem Solving, and Adaptability.</p>
           </div>
         </div>
       </section>
 
+      {/* --- SECTION 2: EDUCATION HISTORY --- */}
       <section className="education-section">
-        <h2>Education History</h2>
+        <div className="section-title-area">
+          <h2>Education History</h2>
+        </div>
         <div className="education-grid">
           {education.map((edu, index) => (
             <motion.div 
               className="education-card"
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
             >
               <div className="edu-icon-box">
                 <FaGraduationCap />
               </div>
-
               <div className="edu-content">
                 <div className="edu-top-row">
                   <span className="edu-year">{edu.year}</span>
@@ -185,81 +204,57 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* --- SECTION 3: CERTIFICATIONS --- */}
       <section className="cert-section">
-        <h2>Professional Certifications</h2>
-        <div className="cert-grid">
+        <div className="section-title-area">
+          <h2>Professional Certifications</h2>
+        </div>
+
+        <div className="cert-list">
           {certifications.map((cert, index) => (
-            <motion.div 
-              className="cert-card"
-              key={index}
-              whileHover={{ scale: 1.02 }}
-            >
+            <motion.div className="cert-badge-card" key={index} whileHover={{ x: 5 }}>
+              
+              {/* Image Container */}
               <a href={cert.image} target="_blank" rel="noreferrer" className="cert-img-wrapper">
-                <img src={cert.image} alt={cert.title} className="cert-img" />
+                 <img src={cert.image} alt={cert.title} />
               </a>
-
+              
               <div className="cert-content">
-                <div className="cert-header">
-                  {cert.issuer.includes("Google") ? <FaGoogle className="google-icon" /> : <FaAward className="google-icon" />}
+                <div className="cert-meta">
+                  {cert.issuer.includes("Google") ? <FaGoogle /> : <FaAward />}
                   <span>{cert.issuer}</span>
-                  {cert.status === "In Progress" && (
-                    <span style={{ 
-                      marginLeft: "auto", 
-                      fontSize: "0.7rem", 
-                      background: "#eab308", 
-                      color: "#000", 
-                      padding: "2px 8px", 
-                      borderRadius: "10px", 
-                      fontWeight: "bold" 
-                    }}>
-                      IN PROGRESS
-                    </span>
-                  )}
                 </div>
-
-                <h3>{cert.title}</h3>
-                <p>{cert.desc}</p>
-                
-                {cert.status === "In Progress" ? (
-                   <a href={cert.link} target="_blank" rel="noreferrer" className="cert-link" style={{color: "#eab308"}}>
-                     View Curriculum <FaExternalLinkAlt />
-                   </a>
-                ) : cert.link !== "#" ? (
-                  <a href={cert.link} target="_blank" rel="noreferrer" className="cert-link">
-                    Verify Credential <FaExternalLinkAlt />
-                  </a>
-                ) : (
-                  <span className="cert-link" style={{ cursor: "default", opacity: 0.6 }}>
-                    Credential Verified
-                  </span>
-                )}
+                <h4>{cert.title}</h4>
+                 {/* Link Logic */}
+                 {cert.link !== "#" ? (
+                    <a href={cert.link} target="_blank" rel="noreferrer" className="cert-verify-link">
+                      Verify Credential <FaExternalLinkAlt />
+                    </a>
+                  ) : (
+                    <span className="cert-verified">Verified</span>
+                  )}
               </div>
             </motion.div>
           ))}
         </div>
       </section>
 
+      {/* --- SECTION 4: PROJECTS GRID --- */}
       <section className="projects-section">
-        <h2>Project Library</h2>
+        <div className="section-title-area">
+          <h2>Selected Projects</h2>
+        </div>
         <div className="projects-grid">
           {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="project-card"
-              initial={{ opacity: 0, y: 60 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 * index }}
-            >
+            <div key={index} className="project-card">
               <h3>{project.title}</h3>
               <p>{project.desc}</p>
               {project.external ? (
-                <a className="project-btn" href={project.link} target="_blank" rel="noopener noreferrer">
-                  View Live Site
-                </a>
+                <a className="project-btn" href={project.link} target="_blank" rel="noopener noreferrer">Live Access</a>
               ) : (
-                <Link className="project-btn" to={project.link}>View Project</Link>
+                <Link className="project-btn" to={project.link}>Detailed View</Link>
               )}
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
