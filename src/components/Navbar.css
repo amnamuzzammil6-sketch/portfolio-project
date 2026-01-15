@@ -1,9 +1,9 @@
-/* Navbar.css - Clean Version */
+/* Navbar.css - Professional Unified Theme */
 
 .navbar {
   width: 100%;
   height: 80px;
-  background-color: #0b1120; /* Deep Slate */
+  background-color: #0b1120; /* MATCHED BASE COLOR */
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   position: fixed;
   top: 0;
@@ -17,91 +17,71 @@
   width: 100%;
   max-width: 1200px;
   height: 100%;
-  padding: 0 20px;
+  padding: 0 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Logo - Solid White */
 .logo {
-  color: #fff;
-  font-size: 1.5rem;
+  color: #ffffff !important;
+  font-size: 1.4rem;
   font-weight: 700;
   text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 6px; 
-}
-
-/* If you still have the span in jsx, this forces it white */
-.logo-highlight {
-  color: #fff; 
+  letter-spacing: -0.5px;
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
   list-style: none;
-  gap: 30px;
+  gap: 15px;
   margin: 0;
   padding: 0;
 }
 
 .nav-links {
-  color: #94a3b8; /* Slate Grey */
+  color: #94a3b8;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  padding: 8px 12px;
   transition: all 0.3s ease;
 }
 
-.nav-links:hover,
-.active-link {
-  color: #3b82f6; /* Blue Accent */
+.nav-links:hover {
+  color: #ffffff;
 }
 
-.nav-icon {
-  font-size: 1.1rem;
-  display: block;
+.active-link {
+  color: #3b82f6 !important; /* Professional Blue Accent for active page */
 }
 
 .mobile-icon {
   display: none;
   color: white;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .nav-menu {
-    position: absolute;
+    position: fixed;
     top: 80px;
     left: -100%;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 80px);
     background-color: #0b1120;
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 40px;
-    align-items: center;
-    transition: all 0.5s ease;
+    padding-top: 50px;
+    transition: 0.4s ease;
   }
-
-  .nav-menu.active {
-    left: 0;
-  }
-
-  .nav-item {
-    width: 100%;
-    text-align: center;
-    margin: 15px 0;
-  }
-
-  .mobile-icon {
-    display: block;
-  }
+  .nav-menu.active { left: 0; }
+  .nav-item { width: 100%; margin: 10px 0; }
+  .nav-links { font-size: 1.2rem; justify-content: center; padding: 20px; }
+  .mobile-icon { display: block; }
 }

@@ -7,13 +7,31 @@ import {
   FaShoppingBag, 
   FaLaptopCode, 
   FaSortNumericDown,
-  FaUserGraduate 
+  FaUserGraduate,
+  FaChartLine // Added for Data Analytics
 } from "react-icons/fa";
 import "./Blogs.css";
 
 export default function Blogs() {
   
   const caseStudies = [
+    // NEW: Bellabeat Case Study added at the top
+    {
+      id: 8,
+      title: "Bellabeat Case Study",
+      icon: <FaChartLine />,
+      desc: "A Google Data Analytics Capstone project analyzing smart device usage trends. I utilized the complete data analysis lifecycle (Ask, Prepare, Process, Analyze, Share, Act) to provide data-driven marketing recommendations.",
+      tech: ["R Programming", "Tableau", "Tidyverse", "Kaggle"],
+      learning: "Data cleaning in R, visualization, and strategic business intelligence."
+    },
+    {
+      id: 7,
+      title: "Student Data Portal",
+      icon: <FaUserGraduate />, 
+      desc: "A professional data entry system with persistent storage. It features real-time validation to ensure data quality and a mobile-responsive layout.",
+      tech: ["JavaScript", "LocalStorage", "CSS"],
+      learning: "Mastering data integrity and persistent web storage."
+    },
     {
       id: 1,
       title: "Weather App",
@@ -21,38 +39,6 @@ export default function Blogs() {
       desc: "A React-based weather application that fetches real-time weather data using the OpenWeather API. It allows users to search any city and view temperature, humidity, and weather conditions with a clean, responsive UI.",
       tech: ["React", "CSS", "OpenWeather API"],
       learning: "API integration and state management in React"
-    },
-    {
-      id: 2,
-      title: "Calculator App",
-      icon: <FaCalculator />,
-      desc: "A simple React calculator designed for performing basic arithmetic operations. Focused on UI clarity and component-based logic.",
-      tech: ["React", "CSS"],
-      learning: "React state updates and input validation"
-    },
-    {
-      id: 3,
-      title: "To-Do App",
-      icon: <FaCheckSquare />,
-      desc: "A React task manager for adding, editing, and deleting daily tasks. Designed to demonstrate CRUD operations and component reusability.",
-      tech: ["React", "CSS", "Local Storage"],
-      learning: "Handling local state and user input"
-    },
-    {
-      id: 4,
-      title: "Counter App",
-      icon: <FaSortNumericDown />,
-      desc: "My first study in React State Management. It allows users to increment, decrement, and reset a counter, demonstrating the fundamentals of the useState hook.",
-      tech: ["React", "CSS", "Hooks (useState)"],
-      learning: "Basics of State Management and Event Handling"
-    },
-    {
-      id: 5,
-      title: "E-Commerce Layout",
-      icon: <FaShoppingBag />,
-      desc: "A front-end e-commerce website layout built with HTML and CSS. It features a responsive grid system for product display and a clean, modern design.",
-      tech: ["HTML", "CSS"],
-      learning: "Advanced CSS layout techniques"
     },
     {
       id: 6,
@@ -63,12 +49,36 @@ export default function Blogs() {
       learning: "Routing, layout design, code optimization"
     },
     {
-      id: 7,
-      title: "Student Data Portal",
-      icon: <FaUserGraduate />, 
-      desc: "A professional data entry system with persistent storage. It features real-time validation to ensure data quality and a mobile-responsive layout.",
-      tech: ["JavaScript", "LocalStorage", "CSS"],
-      learning: "Mastering data integrity and persistent web storage."
+      id: 5,
+      title: "E-Commerce Layout",
+      icon: <FaShoppingBag />,
+      desc: "A front-end e-commerce website layout built with HTML and CSS. It features a responsive grid system for product display and a clean, modern design.",
+      tech: ["HTML", "CSS"],
+      learning: "Advanced CSS layout techniques"
+    },
+    {
+      id: 3,
+      title: "To-Do App",
+      icon: <FaCheckSquare />,
+      desc: "A React task manager for adding, editing, and deleting daily tasks. Designed to demonstrate CRUD operations and component reusability.",
+      tech: ["React", "CSS", "Local Storage"],
+      learning: "Handling local state and user input"
+    },
+    {
+      id: 2,
+      title: "Calculator App",
+      icon: <FaCalculator />,
+      desc: "A simple React calculator designed for performing basic arithmetic operations. Focused on UI clarity and component-based logic.",
+      tech: ["React", "CSS"],
+      learning: "React state updates and input validation"
+    },
+    {
+      id: 4,
+      title: "Counter App",
+      icon: <FaSortNumericDown />,
+      desc: "My first study in React State Management. It allows users to increment, decrement, and reset a counter, demonstrating the fundamentals of the useState hook.",
+      tech: ["React", "CSS", "Hooks (useState)"],
+      learning: "Basics of State Management and Event Handling"
     }
   ];
 

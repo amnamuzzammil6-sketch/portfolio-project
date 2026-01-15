@@ -7,53 +7,53 @@ import "./Home.css";
 const Home = () => {
   return (
     <div className="home-container">
+      <div className="background-grid"></div>
+      <div className="glow-orb"></div>
+
       <motion.section 
         className="hero-section"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, x: -30 }} 
+        animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
       >
-        {/* Top Tag */}
         <span className="hero-intro">
-           GOOGLE CERTIFIED &bull; AI ESSENTIALS &bull; DATA ANALYTICS
+           GOOGLE CERTIFIED &bull; UI/UX DESIGN &bull; DATA ANALYTICS
         </span>
 
-        {/* HEADLINE */}
         <h1 className="hero-name">
           Bridging the Gap Between <br />
           <span className="highlight">Business & Code</span>
         </h1>
 
-        {/* Typed Text */}
-        <h2 className="hero-role">
-          <ReactTyped
-            strings={[
-              "Google Certified Data Analyst",
-              "Certified in AI & Prompting Essentials",
-              "IBIT Merit Scholar (Punjab University)",
-            ]}
-            typeSpeed={40}
-            backSpeed={30}
-            loop
-          />
-        </h2>
+        <div className="role-wrapper">
+            <h2 className="hero-role">
+              <ReactTyped
+                strings={[
+                  "Google Certified Data Analyst",
+                  "Google Certified UI/UX Designer",
+                  "IBIT Merit Scholar (Punjab University)",
+                  "AI & Prompting Essentials Specialist",
+                ]}
+                typeSpeed={40}
+                backSpeed={30}
+                loop
+              />
+            </h2>
+        </div>
 
-        {/* Summary (EXACTLY AS YOU WROTE IT) */}
+        
         <p className="hero-desc">
-          I am currently a <strong>Merit Scholar</strong> at the <strong>Institute of Business & Information Technology (University of the Punjab)</strong>.
-          <br /><br />
-          My focus goes beyond the classroom. I combine my academic foundation with 
-          <strong> Google-certified expertise in Data Analytics, AI Essentials, and Prompting Essentials</strong> to 
-          build React.js applications that are smart, scalable, and future-ready.
+          Specializing in <strong>Data-Driven Design</strong>. I combine 
+          <strong> Google-certified Analytics & UI/UX</strong> with <strong>React.js</strong> to 
+          transform complex data into intuitive, high-performance web experiences.
         </p>
 
-        {/* Buttons */}
         <div className="hero-buttons">
           <Link to="/portfolio" className="btn-primary">
-            View My Work
+            View Projects
           </Link>
-          <Link to="/contact" className="btn-outline">
-            Contact Me
+          <Link to="/case-studies/bellabeat" className="btn-outline">
+            View Case Study
           </Link>
         </div>
 

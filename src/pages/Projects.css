@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+  --bg-main: #0b1120;
+  --accent-blue: #3b82f6;
+  --accent-cyan: #22d3ee;
+  --glass-surface: rgba(17, 25, 40, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text-primary: #ffffff;
+  --text-muted: #94a3b8;
+}
+
+.projects-page {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  padding: 120px 8% 100px;
+  min-height: 100vh;
+  font-family: 'Outfit', sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background Grid (Same as About) */
+.background-grid {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 35px 35px;
+  z-index: 0;
+}
+
+/* Hero Section */
+.projects-hero { text-align: center; margin-bottom: 80px; position: relative; z-index: 2; }
+.projects-hero h1 { 
+  font-size: clamp(2.5rem, 6vw, 4rem); 
+  font-weight: 800; 
+  background: linear-gradient(180deg, #fff 0%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+
+.subtitle-pill {
+  font-size: 1.1rem; color: var(--text-muted); padding: 10px 30px; border-radius: 50px;
+  background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border);
+  display: inline-block;
+}
+
+/* Grid Layout */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Glass Cards */
+.project-card {
+  background: var(--glass-surface);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-blue);
+  box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.25);
+  background: rgba(17, 25, 40, 0.85);
+}
+
+.card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+.project-icon { color: var(--accent-blue); font-size: 1.4rem; }
+
+.project-card h3 { font-size: 1.4rem; font-weight: 700; color: #fff; }
+.project-card p { color: var(--text-muted); font-size: 1rem; margin-bottom: 30px; line-height: 1.6; flex-grow: 1; }
+
+/* Buttons */
+.project-btn {
+  padding: 12px 24px;
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s;
+  font-size: 0.9rem;
+}
+
+.project-btn:hover {
+  background: var(--accent-blue);
+  color: white;
+  gap: 12px;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
