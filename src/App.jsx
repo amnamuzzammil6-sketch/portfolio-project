@@ -7,10 +7,13 @@ import Home from "./pages/Home";
 import Portfolio from "./pages/Projects"; // Your Web Dev Projects
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
-import About from "./pages/About"; // NEW: Skills, Certs, Education combined
-import Bellabeat from "./pages/Case-studies/Bellabeat"; // NEW: Data Analytics Project
+import About from "./pages/About"; // Skills, Certs, Education combined
 
-// Mini-Projects (Keep these as they were)
+// Data Analytics Case Studies
+import Bellabeat from "./pages/Case-studies/Bellabeat";
+import CustomerSegmentation from "./pages/Case-studies/CustomerSegmentation"; // <--- NEW IMPORT
+
+// Mini-Projects
 import Todo from "./work/Todo";
 import ScrollToTop from "./ScrollToTop";
 import Calculator from "./work/Calculator";
@@ -24,17 +27,21 @@ function App() {
     <div className="app-layout">
       <Navbar />
       <main className="content">
+        {/* Ensures the page scrolls to top when route changes */}
         <ScrollToTop key={location.pathname} />
+        
         <Routes location={location}>
           {/* Main Navigation Routes */}
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} /> {/* Skills, Edu, Certifications */}
-          <Route path="/portfolio" element={<Portfolio />} /> {/* Web Development Projects */}
+          <Route path="/about" element={<About />} />
+          <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/contact" element={<Contact />} />
 
           {/* Data Analytics Case Studies */}
           <Route path="/case-studies/bellabeat" element={<Bellabeat />} />
+          {/* NEW ROUTE ADDED BELOW */}
+          <Route path="/case-studies/customer-segmentation" element={<CustomerSegmentation />} />
 
           {/* Individual Web App Routes */}
           <Route path="/weather" element={<Weather />} />

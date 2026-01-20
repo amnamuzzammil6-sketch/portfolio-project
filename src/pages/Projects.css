@@ -20,7 +20,7 @@
   overflow-x: hidden;
 }
 
-/* Background Grid (Same as About) */
+/* Background Grid */
 .background-grid {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
@@ -30,7 +30,7 @@
 }
 
 /* Hero Section */
-.projects-hero { text-align: center; margin-bottom: 80px; position: relative; z-index: 2; }
+.projects-hero { text-align: center; margin-bottom: 50px; position: relative; z-index: 2; }
 .projects-hero h1 { 
   font-size: clamp(2.5rem, 6vw, 4rem); 
   font-weight: 800; 
@@ -46,6 +46,66 @@
   display: inline-block;
 }
 
+/* --- TAB SYSTEM STYLING (NEW) --- */
+.tabs-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  font-family: 'Outfit', sans-serif;
+}
+
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Active State (Highlighted) */
+.tab-btn.active {
+  background: var(--accent-blue);
+  color: #fff;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Simple Section Header (Inside Tabs) */
+.section-header-simple {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.section-header-simple h2 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.section-header-simple p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
 /* Grid Layout */
 .projects-grid {
   display: grid;
@@ -57,7 +117,7 @@
   z-index: 2;
 }
 
-/* Glass Cards */
+/* Glass Cards (Base Style) */
 .project-card {
   background: var(--glass-surface);
   backdrop-filter: blur(12px);
@@ -76,11 +136,42 @@
   background: rgba(17, 25, 40, 0.85);
 }
 
+/* --- CASE STUDY SPECIAL STYLING --- */
+/* Makes Data projects look different from Web projects */
+.case-card {
+  border-left: 3px solid var(--accent-cyan);
+  background: rgba(17, 25, 40, 0.85);
+}
+
+.case-card:hover {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 20px 40px -10px rgba(34, 211, 238, 0.25);
+}
+
+/* Mini Tags (SQL, R, etc.) */
+.mini-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 25px; 
+}
+
+.mini-tags span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  color: #cbd5e1;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Card Content */
 .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
 .project-icon { color: var(--accent-blue); font-size: 1.4rem; }
 
 .project-card h3 { font-size: 1.4rem; font-weight: 700; color: #fff; }
-.project-card p { color: var(--text-muted); font-size: 1rem; margin-bottom: 30px; line-height: 1.6; flex-grow: 1; }
+.project-card p { color: var(--text-muted); font-size: 1rem; margin-bottom: 25px; line-height: 1.6; flex-grow: 1; }
 
 /* Buttons */
 .project-btn {
@@ -94,6 +185,7 @@
   width: fit-content;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   transition: 0.3s;
   font-size: 0.9rem;
@@ -104,4 +196,34 @@
   color: white;
   gap: 12px;
   box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+/* Full Width Button for Case Studies */
+.full-width {
+  width: 100%;
+  background: rgba(34, 211, 238, 0.1);
+  color: var(--accent-cyan);
+  border-color: rgba(34, 211, 238, 0.3);
+}
+
+.full-width:hover {
+  background: var(--accent-cyan);
+  color: #000;
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
+}
+
+/* Utility Colors */
+.icon-gold { color: #fbbf24; }
+.icon-cyan { color: var(--accent-cyan); }
+.icon-blue { color: var(--accent-blue); }
+
+/* Responsive adjustments for tabs */
+@media (max-width: 600px) {
+  .tabs-container {
+    gap: 10px;
+  }
+  .tab-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
 }

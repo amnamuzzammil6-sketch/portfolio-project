@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { 
   FaHome, 
   FaCode, 
-  FaChartBar, 
   FaUser, 
   FaEnvelope, 
   FaBlog, 
@@ -47,17 +46,10 @@ export default function Navbar() {
             </NavLink>
           </li>
 
-          {/* IMPROVED: WEB DEV -> PROJECTS */}
+          {/* MAIN PORTFOLIO LINK (Includes Data & Web) */}
           <li className="nav-item">
             <NavLink to="/portfolio" className={({ isActive }) => "nav-links" + (isActive ? " active-link" : "")} onClick={closeMobileMenu}>
               <FaCode className="nav-icon" /> Projects
-            </NavLink>
-          </li>
-
-          {/* IMPROVED: DATA ANALYTICS -> CASE STUDIES */}
-          <li className="nav-item">
-            <NavLink to="/case-studies/bellabeat" className={({ isActive }) => "nav-links" + (isActive ? " active-link" : "")} onClick={closeMobileMenu}>
-              <FaChartBar className="nav-icon" /> Case Studies
             </NavLink>
           </li>
 
