@@ -17,7 +17,7 @@ const Home = () => {
         transition={{ duration: 0.8 }}
       >
         <span className="hero-intro">
-           GOOGLE CERTIFIED &bull; UI/UX DESIGN &bull; DATA ANALYTICS
+           GOOGLE CERTIFIED • UI/UX DESIGN • DATA ANALYTICS
         </span>
 
         <h1 className="hero-name">
@@ -49,11 +49,14 @@ const Home = () => {
         </p>
 
         <div className="hero-buttons">
+          {/* PRIMARY: Go to your new "Technical Portfolio" page */}
           <Link to="/portfolio" className="btn-primary">
             View Projects
           </Link>
-          <Link to="/case-studies/bellabeat" className="btn-outline">
-            View Case Study
+
+          {/* SECONDARY: Changed from "View Case Study" to "Contact Me" */}
+          <Link to="/contact" className="btn-outline">
+            Contact Me
           </Link>
         </div>
 
