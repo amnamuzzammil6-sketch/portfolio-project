@@ -5,7 +5,7 @@ import { FaExternalLinkAlt, FaCode, FaChartLine, FaDatabase, FaArrowRight, FaLap
 import "./Projects.css";
 
 export default function Projects() {
-  // State to handle the active tab (Default is 'data' because that's your priority)
+  // State to handle the active tab (Default is 'data')
   const [activeTab, setActiveTab] = useState("data");
 
   // DATA ANALYTICS PROJECTS
@@ -24,13 +24,14 @@ export default function Projects() {
     }
   ];
 
-  // WEB DEVELOPMENT PROJECTS
+  // WEB DEVELOPMENT PROJECTS (Restored Counter App)
   const webProjects = [
     { title: "Student Data Portal", desc: "Professional data entry system with LocalStorage persistence.", link: "https://student-data-portal.vercel.app/", external: true },
     { title: "Weather Dashboard", desc: "Fetches live climate data via OpenWeather API.", link: "/weather", external: false },
     { title: "E-commerce Interface", desc: "Responsive HTML/CSS layout deployed on Vercel.", link: "https://e-commerce-website-lemon-iota-85.vercel.app/", external: true },
     { title: "Task Manager", desc: "CRUD application using Local Storage for data persistence.", link: "/todo", external: false },
     { title: "React Calculator", desc: "A logic-heavy component focused on state updates.", link: "/calculator", external: false },
+    { title: "Counter App", desc: "Foundational study in React Hooks and Event Handling.", link: "/counter", external: false }
   ];
 
   return (
@@ -38,10 +39,8 @@ export default function Projects() {
       <div className="background-grid"></div>
 
       <header className="projects-hero">
-        {/* UPDATED TITLE */}
         <motion.h1 initial={{ y: -20 }} animate={{ y: 0 }}>Technical Portfolio</motion.h1>
         
-        {/* UPDATED SUBTITLE (Removed Software Engineering) */}
         <div className="subtitle-pill">
           A showcase of my work in <strong>Data Strategy</strong> and <strong>Web Development</strong>.
         </div>
