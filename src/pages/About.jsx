@@ -26,7 +26,7 @@ export default function About() {
       degree: "Bachelor of Business & IT (Hons)",
       school: "IBIT, University of the Punjab",
       year: "2024 - 2028 (Expected)",
-      grade: "CGPA: 3.24 / 4.00",
+      grade: "CGPA: 3.32 / 4.00",
       desc: "Specializing in Information Technology with focus on Data Analytics and Web Engineering."
     },
     {
