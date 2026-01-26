@@ -15,10 +15,12 @@ const Footer = () => {
 
         {/* 2. Social Icons (Centered & Prominent) */}
         <div className="footer-socials">
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+         
+          <a href="https://www.linkedin.com/in/amna-muzzammil" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <FaLinkedin />
           </a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+         
+          <a href="https://github.com/amnamuzzammil6-sketch" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <FaGithub />
           </a>
           <a href="mailto:amnamuzzammil6@gmail.com" aria-label="Email">
