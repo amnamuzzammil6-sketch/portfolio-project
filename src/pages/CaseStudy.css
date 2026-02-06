@@ -1,0 +1,167 @@
+.case-study-container {
+  padding-top: 80px;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* --- HERO SECTION --- */
+.study-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 10%;
+  background: white;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.hero-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  color: #121212;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.hero-tags span {
+  background: #eee;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* --- FIX: FORCE PHONE SIZE --- */
+.hero-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-img {
+  max-width: 300px !important; /* CRITICAL FIX */
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  border: 4px solid #fff;
+}
+
+/* --- SECTIONS --- */
+.study-section {
+  padding: 4rem 10%;
+}
+
+.study-section.alt-bg {
+  background: white;
+}
+
+.content-block {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #121212;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* --- FIX: PERSONA CARD SIZING --- */
+.persona-card {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+/* --- IMAGE GRIDS --- */
+.image-grid-2 {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.img-wrapper {
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+  text-align: center;
+}
+
+.img-wrapper img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border: 1px solid #eee;
+}
+
+.caption {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* --- CTA BUTTON --- */
+.cta-section {
+  text-align: center;
+  padding: 6rem 1rem;
+}
+
+.live-demo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #121212;
+  color: #FFD700;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: transform 0.2s;
+}
+
+.live-demo-btn:hover {
+  transform: translateY(-3px);
+  background: #000;
+}
+
+@media (max-width: 768px) {
+  .study-hero {
+    padding: 2rem 5%;
+    text-align: center;
+    flex-direction: column-reverse;
+  }
+  .hero-content {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+  .study-section {
+    padding: 3rem 5%;
+  }
+}

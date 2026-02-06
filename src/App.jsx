@@ -11,7 +11,10 @@ import About from "./pages/About"; // Skills, Certs, Education combined
 
 // Data Analytics Case Studies
 import Bellabeat from "./pages/Case-studies/Bellabeat";
-import CustomerSegmentation from "./pages/Case-studies/CustomerSegmentation"; // <--- NEW IMPORT
+import CustomerSegmentation from "./pages/Case-studies/CustomerSegmentation";
+
+// UX Case Studies (NEW)
+import FloraCaseStudy from "./pages/FloraCaseStudy"; // <--- IMPORT FLORA HERE
 
 // Mini-Projects
 import Todo from "./work/Todo";
@@ -40,8 +43,10 @@ function App() {
 
           {/* Data Analytics Case Studies */}
           <Route path="/case-studies/bellabeat" element={<Bellabeat />} />
-          {/* NEW ROUTE ADDED BELOW */}
           <Route path="/case-studies/customer-segmentation" element={<CustomerSegmentation />} />
+
+          {/* UX Design Case Studies (NEW ROUTE) */}
+          <Route path="/case-studies/flora" element={<FloraCaseStudy />} />
 
           {/* Individual Web App Routes */}
           <Route path="/weather" element={<Weather />} />

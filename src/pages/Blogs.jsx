@@ -8,14 +8,34 @@ import {
   FaLaptopCode, 
   FaSortNumericDown,
   FaUserGraduate,
-  FaChartLine // Added for Data Analytics
+  FaChartLine,
+  FaPalette,   // New for UI/UX
+  FaChartPie   // New for Segmentation
 } from "react-icons/fa";
 import "./Blogs.css";
 
 export default function Blogs() {
   
   const caseStudies = [
-    // NEW: Bellabeat Case Study added at the top
+    // --- NEW PROJECT: FLORA UI/UX ---
+    {
+      id: 10,
+      title: "FLORA - UI/UX Case Study",
+      icon: <FaPalette />,
+      desc: "An end-to-end UX design project for a custom floral subscription service. I conducted user research to create personas, designed low-fidelity wireframes, and built a high-fidelity interactive prototype in Figma.",
+      tech: ["Figma", "User Research", "Prototyping", "Wireframing"],
+      learning: "User-Centered Design (UCD) principles, visual hierarchy, and creating interactive mockups."
+    },
+    // --- NEW PROJECT: CUSTOMER SEGMENTATION ---
+    {
+      id: 9,
+      title: "Strategic Customer Segmentation",
+      icon: <FaChartPie />,
+      desc: "Executed an RFM (Recency, Frequency, Monetary) analysis using SQL and R to segment a customer base. The goal was to identify VIP customers and 'at-risk' users to optimize marketing ROI.",
+      tech: ["SQL", "R Programming", "K-Means Clustering", "Data Viz"],
+      learning: "Business intelligence strategy, statistical clustering, and actionable data storytelling."
+    },
+    // --- EXISTING PROJECTS ---
     {
       id: 8,
       title: "Bellabeat Case Study",
