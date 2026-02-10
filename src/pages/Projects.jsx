@@ -1,115 +1,143 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { 
-  FaExternalLinkAlt, 
-  FaCode, 
-  FaChartLine, 
-  FaDatabase, 
-  FaArrowRight, 
+import {
+  FaExternalLinkAlt,
+  FaCode,
+  FaChartLine,
+  FaDatabase,
+  FaArrowRight,
   FaLaptopCode,
-  FaPalette 
-} from "react-icons/fa"; 
+  FaPalette
+} from "react-icons/fa";
 import "./Projects.css";
 
 export default function Projects() {
-  const [activeTab, setActiveTab] = useState("data");
+  // FRONTEND FIRST
+  const [activeTab, setActiveTab] = useState("web");
 
-  // DATA ANALYTICS PROJECTS
+  /* ---------------- DATA PROJECTS ---------------- */
   const caseStudies = [
-    { 
-      title: "Strategic Customer Segmentation", 
-      desc: "RFM Analysis using SQL & R to identify VIP customers and reduce churn.", 
-      link: "/case-studies/customer-segmentation", 
-      tags: ["SQL", "R", "Business Intel"]
+    {
+      title: "Strategic Customer Segmentation",
+      desc: "Used RFM analysis with SQL and R to identify high-value customers and reduce churn risk.",
+      link: "/case-studies/customer-segmentation",
+      tags: ["SQL", "R", "Business Intelligence"]
     },
-    { 
-      title: "Bellabeat Consumer Analysis", 
-      desc: "Analyzing smart device usage data to unlock new growth opportunities.", 
-      link: "/case-studies/bellabeat", 
-      tags: ["R", "Tableau", "Data Viz"]
+    {
+      title: "Bellabeat Consumer Analysis",
+      desc: "Analyzed smart-device usage patterns to generate data-backed product recommendations.",
+      link: "/case-studies/bellabeat",
+      tags: ["R", "Tableau", "Data Visualization"]
     }
   ];
 
-  // WEB DEVELOPMENT PROJECTS
+  /* ---------------- FRONTEND PROJECTS ---------------- */
   const webProjects = [
-    { title: "Student Data Portal", desc: "Professional data entry system with LocalStorage persistence.", link: "https://student-data-portal.vercel.app/", external: true },
-    { title: "Weather Dashboard", desc: "Fetches live climate data via OpenWeather API.", link: "/weather", external: false },
-    { title: "E-commerce Interface", desc: "Responsive HTML/CSS layout deployed on Vercel.", link: "https://e-commerce-website-lemon-iota-85.vercel.app/", external: true },
-    { title: "Task Manager", desc: "CRUD application using Local Storage for data persistence.", link: "/todo", external: false },
-    { title: "React Calculator", desc: "A logic-heavy component focused on state updates.", link: "/calculator", external: false },
-    { title: "Counter App", desc: "Foundational study in React Hooks and Event Handling.", link: "/counter", external: false }
+    {
+      title: "Student Data Portal",
+      desc: "Product-style data entry system with persistent state using LocalStorage.",
+      link: "https://student-data-portal.vercel.app/",
+      external: true
+    },
+    {
+      title: "Weather Dashboard",
+      desc: "Real-time weather dashboard using OpenWeather API and async data handling.",
+      link: "/weather",
+      external: false
+    },
+    {
+      title: "E-commerce Interface",
+      desc: "Responsive frontend layout optimized for usability and SEO best practices.",
+      link: "https://e-commerce-website-lemon-iota-85.vercel.app/",
+      external: true
+    },
+    {
+      title: "Task Manager",
+      desc: "CRUD-based productivity app focusing on clean state management.",
+      link: "/todo",
+      external: false
+    },
+    {
+      title: "React Calculator",
+      desc: "Logic-heavy component demonstrating controlled inputs and state updates.",
+      link: "/calculator",
+      external: false
+    }
   ];
 
-  // UI/UX DESIGN PROJECTS
+  /* ---------------- UX PROJECTS ---------------- */
   const uxProjects = [
     {
-      title: "FLORA - Custom Floral App",
-      desc: "End-to-end UX case study for a floral subscription service. Includes persona research, wireframing, and high-fidelity prototyping.",
+      title: "FLORA – Custom Floral App",
+      desc: "End-to-end UX case study covering research, user flows, wireframes, and high-fidelity UI.",
       link: "/case-studies/flora",
-      tags: ["Figma", "UX Research", "Prototyping", "User Flow"],
-      image: "/assets/flora/cover.png" // Ensure this matches your file name exactly
+      tags: ["Figma", "UX Research", "Prototyping", "User Flows"],
+      // FIXED: Used a placeholder so it shows up. Replace this with your direct import or valid URL later.
+      image: "https://placehold.co/600x400/png?text=Flora+App+Preview"
     }
   ];
 
   return (
-    <motion.div className="projects-page" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+    <motion.div
+      className="projects-page"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <div className="background-grid"></div>
 
+      {/* ---------------- HERO ---------------- */}
       <header className="projects-hero">
-        <motion.h1 initial={{ y: -20 }} animate={{ y: 0 }}>Technical Portfolio</motion.h1>
+        <motion.h1 initial={{ y: -20 }} animate={{ y: 0 }}>
+          Technical Portfolio
+        </motion.h1>
         <div className="subtitle-pill">
-          A showcase of my work in <strong>Data Strategy</strong>, <strong>Web Development</strong>, and <strong>UI/UX Design</strong>.
+          Product-focused frontend work supported by <strong>data insights</strong> and
+          <strong> user-centered design</strong>.
         </div>
       </header>
 
-      {/* --- TAB NAVIGATION --- */}
+      {/* ---------------- TABS ---------------- */}
       <div className="tabs-container">
-        <button className={`tab-btn ${activeTab === "data" ? "active" : ""}`} onClick={() => setActiveTab("data")}>
-          <FaChartLine /> Data Strategy
+        <button
+          className={`tab-btn ${activeTab === "web" ? "active" : ""}`}
+          onClick={() => setActiveTab("web")}
+        >
+          <FaLaptopCode /> Product Engineering
         </button>
-        <button className={`tab-btn ${activeTab === "web" ? "active" : ""}`} onClick={() => setActiveTab("web")}>
-          <FaLaptopCode /> Web Dev
+
+        <button
+          className={`tab-btn ${activeTab === "data" ? "active" : ""}`}
+          onClick={() => setActiveTab("data")}
+        >
+          <FaChartLine /> Data-Informed Decisions
         </button>
-        <button className={`tab-btn ${activeTab === "uiux" ? "active" : ""}`} onClick={() => setActiveTab("uiux")}>
-          <FaPalette /> UI/UX Design
+
+        <button
+          className={`tab-btn ${activeTab === "uiux" ? "active" : ""}`}
+          onClick={() => setActiveTab("uiux")}
+        >
+          <FaPalette /> UX & Interface Design
         </button>
       </div>
 
-      {/* --- CONTENT AREA --- */}
+      {/* ---------------- CONTENT ---------------- */}
       <div className="projects-content">
         <AnimatePresence mode="wait">
-          
-          {/* DATA TAB */}
-          {activeTab === "data" && (
-            <motion.div key="data" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }} transition={{ duration: 0.3 }}>
-              <div className="section-header-simple">
-                <h2>Business Intelligence Case Studies</h2>
-                <p>Deep-dive analyses using SQL, R, and Visualization tools.</p>
-              </div>
-              <div className="projects-grid case-study-grid">
-                {caseStudies.map((project, index) => (
-                  <div key={index} className="project-card case-card">
-                    <div className="card-header">
-                      <FaDatabase className="project-icon icon-gold" />
-                      <h3>{project.title}</h3>
-                    </div>
-                    <p>{project.desc}</p>
-                    <div className="mini-tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
-                    <Link className="project-btn full-width" to={project.link}>View Case Study <FaArrowRight /></Link>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          )}
 
-          {/* WEB TAB */}
+          {/* FRONTEND */}
           {activeTab === "web" && (
-            <motion.div key="web" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }}>
+            <motion.div
+              key="web"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+            >
               <div className="section-header-simple">
-                <h2>Front-End Engineering</h2>
-                <p>Responsive applications built with React.js, HTML, and CSS.</p>
+                <h2>Product-Focused Frontend Development</h2>
+                <p>Building scalable, usable interfaces with React and modern web practices.</p>
               </div>
+
               <div className="projects-grid">
                 {webProjects.map((project, index) => (
                   <div key={index} className="project-card">
@@ -118,10 +146,20 @@ export default function Projects() {
                       <h3>{project.title}</h3>
                     </div>
                     <p>{project.desc}</p>
+
                     {project.external ? (
-                      <a className="project-btn" href={project.link} target="_blank" rel="noopener noreferrer">Live Access <FaExternalLinkAlt /></a>
+                      <a
+                        className="project-btn"
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Live Demo <FaExternalLinkAlt />
+                      </a>
                     ) : (
-                      <Link className="project-btn" to={project.link}>View App <FaExternalLinkAlt /></Link>
+                      <Link className="project-btn" to={project.link}>
+                        View Project <FaExternalLinkAlt />
+                      </Link>
                     )}
                   </div>
                 ))}
@@ -129,52 +167,81 @@ export default function Projects() {
             </motion.div>
           )}
 
-          {/* UI/UX TAB (FIXED IMAGE SCALING) */}
-          {activeTab === "uiux" && (
-            <motion.div key="uiux" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }}>
+          {/* DATA */}
+          {activeTab === "data" && (
+            <motion.div
+              key="data"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+            >
               <div className="section-header-simple">
-                <h2>User Experience Design</h2>
-                <p>Prototyping, Wireframing, and High-Fidelity UI Design.</p>
+                <h2>Data-Informed Product Thinking</h2>
+                <p>Using analytics to support better business and design decisions.</p>
+              </div>
+
+              <div className="projects-grid case-study-grid">
+                {caseStudies.map((project, index) => (
+                  <div key={index} className="project-card case-card">
+                    <div className="card-header">
+                      <FaDatabase className="project-icon icon-gold" />
+                      <h3>{project.title}</h3>
+                    </div>
+                    <p>{project.desc}</p>
+                    <div className="mini-tags">
+                      {project.tags.map(tag => (
+                        <span key={tag}>{tag}</span>
+                      ))}
+                    </div>
+                    <Link className="project-btn full-width" to={project.link}>
+                      View Case Study <FaArrowRight />
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {/* UX - THIS IS THE FIXED SECTION */}
+          {activeTab === "uiux" && (
+            <motion.div
+              key="uiux"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+            >
+              <div className="section-header-simple">
+                <h2>UX & Interface Design</h2>
+                <p>Designing intuitive, research-driven user experiences.</p>
               </div>
 
               <div className="projects-grid case-study-grid">
                 {uxProjects.map((project, index) => (
                   <div key={index} className="project-card case-card">
-                    
-                    {/* --- FIXED IMAGE SECTION --- */}
-                    {project.image && (
-                      <div style={{ 
-                        height: '250px',   /* Keeps consistent height */
-                        overflow: 'hidden', 
-                        borderRadius: '8px',
-                        marginBottom: '1rem',
-                        border: '1px solid #eee',
-                        backgroundColor: '#f9f9f9', /* Nice background for empty space */
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                      }}>
-                        <img 
-                          src={project.image} 
-                          alt={project.title} 
-                          style={{ 
-                            maxWidth: '100%', 
-                            maxHeight: '100%', 
-                            objectFit: 'contain', /* <--- THIS PREVENTS CROPPING */
-                            display: 'block' 
-                          }} 
-                        />
-                      </div>
-                    )}
-                    {/* --------------------------- */}
+                    {/* FIXED: Added inline styles and object-fit to prevent layout break */}
+                    <div className="image-wrapper" style={{ width: '100%', overflow: 'hidden', borderRadius: '8px 8px 0 0' }}>
+                      <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        style={{ width: '100%', height: '200px', objectFit: 'cover', display: 'block' }}
+                      />
+                    </div>
 
                     <div className="card-header">
                       <FaPalette className="project-icon icon-gold" />
                       <h3>{project.title}</h3>
                     </div>
+
                     <p>{project.desc}</p>
-                    <div className="mini-tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
-                    <Link className="project-btn full-width" to={project.link}>View Case Study <FaArrowRight /></Link>
+                    <div className="mini-tags">
+                      {project.tags.map(tag => (
+                        <span key={tag}>{tag}</span>
+                      ))}
+                    </div>
+
+                    <Link className="project-btn full-width" to={project.link}>
+                      View Case Study <FaArrowRight />
+                    </Link>
                   </div>
                 ))}
               </div>

@@ -9,10 +9,7 @@ import "./About.css";
 // Asset Imports
 import googleDataImg from "../assets/google-data-analytics.jpg";
 import googleAIImg from "../assets/google-ai.png";
-import googlePromptingImg from "../assets/google-prompting-essential.jpg";
 import googleUxImg from "../assets/google-ux-design.png";
-import buildUiImg from "../assets/build-user-interfaces.png";
-import jobImg from "../assets/job.png";
 import pythonImg from "../assets/python.png";
 
 export default function About() {
@@ -38,14 +35,23 @@ export default function About() {
     }
   ];
 
+  // CHANGED: Reordered - Frontend Engineering is now FIRST
   const certifications = [
-    { title: "Google Data Analytics Professional", issuer: "Google", link: "https://coursera.org/share/d5c7f9f8f625f3b52f7dbeb4e6f87eb8", image: googleDataImg },
-    { title: "Google UX Design Professional", issuer: "Google", link: "https://coursera.org/share/d053f0b8c2c230b110384f1f99553ca2", image: googleUxImg },
-    { title: "Frontend Web Development", issuer: "Bano Qabil 4.0", link: "#", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6vI2YvXy8Z8YjC6Z8U8x7e2Q6vI2YvXy8Z8YjC6Z8U8x7e2Q&s" },
-    { title: "Crash Course on Python", issuer: "Google", link: "https://coursera.org/share/5d42467ab815c9af43c5c54cdc1bf6c6", image: pythonImg },
-    { title: "Accelerate Job Search with AI", issuer: "Google", link: "https://coursera.org/share/d011f3a9deb54dd086f3edcbd31903a0", image: jobImg },
-    { title: "Google AI Essentials", issuer: "Google", link: "https://coursera.org/share/9f83e6b2b64e99377b2cbd6f63c5b3c3", image: googleAIImg },
-    { title: "Build Dynamic User Interfaces", issuer: "Google", link: "https://coursera.org/share/4036bd241efcb80dd2bcb0ea0a296f52", image: buildUiImg }
+    {
+      category: "Frontend Engineering",
+      items: [
+        { title: "Google UX Design Professional", issuer: "Google", link: "https://coursera.org/share/d053f0b8c2c230b110384f1f99553ca2", image: googleUxImg },
+        { title: "Frontend Web Development", issuer: "Bano Qabil 4.0", link: "#", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6vI2YvXy8Z8YjC6Z8U8x7e2Q6vI2YvXy8Z8YjC6Z8U8x7e2Q&s" }
+      ]
+    },
+    {
+      category: "Data & Analytics",
+      items: [
+        { title: "Google Data Analytics Professional", issuer: "Google", link: "https://coursera.org/share/d5c7f9f8f625f3b52f7dbeb4e6f87eb8", image: googleDataImg },
+        { title: "Google AI Essentials", issuer: "Google", link: "https://coursera.org/share/9f83e6b2b64e99377b2cbd6f63c5b3c3", image: googleAIImg },
+        { title: "Crash Course on Python", issuer: "Google", link: "https://coursera.org/share/5d42467ab815c9af43c5c54cdc1bf6c6", image: pythonImg }
+      ]
+    }
   ];
 
   return (
@@ -71,20 +77,15 @@ export default function About() {
         </div>
       </motion.section>
 
-      {/* COMPETENCIES SECTION */}
+      {/* COMPETENCIES SECTION - CHANGED: Web Development is now FIRST */}
       <motion.section className="about-section-container" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
         <div className="section-header">
           <div className="accent-line"></div>
           <h2>Core Competencies</h2>
         </div>
         <div className="competency-grid">
-          <div className="glass-card skill-box">
-            <FaPython className="card-icon" />
-            <h3>Data Analytics</h3>
-            <div className="skill-badges">
-              <span>Python</span><span>SQL</span><span>Tableau</span><span>Excel</span>
-            </div>
-          </div>
+          
+          {/* 1. Web Development (Moved to Top) */}
           <div className="glass-card skill-box">
             <FaCode className="card-icon" />
             <h3>Web Development</h3>
@@ -92,6 +93,17 @@ export default function About() {
               <span>React.js</span><span>JavaScript</span><span>UI/UX</span><span>HTML/CSS</span>
             </div>
           </div>
+
+          {/* 2. Data Analytics */}
+          <div className="glass-card skill-box">
+            <FaPython className="card-icon" />
+            <h3>Data Analytics</h3>
+            <div className="skill-badges">
+              <span>Python</span><span>SQL</span><span>Tableau</span><span>Excel</span>
+            </div>
+          </div>
+
+          {/* 3. IT Foundations */}
           <div className="glass-card skill-box">
             <FaCogs className="card-icon" />
             <h3>IT Foundations</h3>
@@ -99,6 +111,7 @@ export default function About() {
               <span>C++</span><span>C programming</span><span>DLD</span><span>Economics</span>
             </div>
           </div>
+
         </div>
       </motion.section>
 
@@ -125,27 +138,41 @@ export default function About() {
         </div>
       </motion.section>
 
-      {/* CERTIFICATIONS SECTION */}
+      {/* CERTIFICATIONS SECTION - CHANGED: Frontend Engineering will render first */}
       <motion.section className="about-section-container" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
         <div className="section-header">
           <div className="accent-line"></div>
-          <h2>Professional Certifications</h2>
+          <h2>Selected Certifications</h2>
         </div>
-        <div className="cert-dashboard">
-          {certifications.map((cert, index) => (
-            <div className="glass-card cert-item" key={index}>
-              <div className="cert-thumb"><img src={cert.image} alt={cert.title} /></div>
-              <div className="cert-info">
-                <div className="issuer-tag">
-                  {cert.issuer.includes("Google") ? <FaGoogle /> : <FaAward />} 
-                  <span>{cert.issuer}</span>
-                </div>
-                <h4>{cert.title}</h4>
-                {cert.link !== "#" && (
-                  <a href={cert.link} target="_blank" rel="noreferrer" className="verify-btn">
-                    Verify Credential <FaExternalLinkAlt />
-                  </a>
-                )}
+        <p className="muted-text" style={{ marginBottom: '2rem', maxWidth: '600px' }}>
+          Industry-recognized credentials that directly support my project work.
+        </p>
+
+        <div className="cert-categories-wrapper">
+          {certifications.map((group, groupIndex) => (
+            <div key={groupIndex} className="cert-group" style={{ marginBottom: '3rem' }}>
+              <h3 style={{ color: '#fff', marginBottom: '1.5rem', fontSize: '1.4rem', borderLeft: '3px solid #FFD700', paddingLeft: '10px' }}>
+                {group.category}
+              </h3>
+              
+              <div className="cert-dashboard">
+                {group.items.map((cert, index) => (
+                  <div className="glass-card cert-item" key={index}>
+                    <div className="cert-thumb"><img src={cert.image} alt={cert.title} /></div>
+                    <div className="cert-info">
+                      <div className="issuer-tag">
+                        {cert.issuer.includes("Google") ? <FaGoogle /> : <FaAward />} 
+                        <span>{cert.issuer}</span>
+                      </div>
+                      <h4>{cert.title}</h4>
+                      {cert.link !== "#" && (
+                        <a href={cert.link} target="_blank" rel="noreferrer" className="verify-btn">
+                          Verify Credential <FaExternalLinkAlt />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           ))}
