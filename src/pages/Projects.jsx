@@ -63,6 +63,13 @@ export default function Projects() {
       desc: "Logic-heavy component demonstrating controlled inputs and state updates.",
       link: "/calculator",
       external: false
+    },
+    // ADDED: Simple Counter Project
+    {
+      title: "Simple Counter",
+      desc: "Interactive counter application demonstrating React state management and event handling.",
+      link: "/counter",
+      external: false
     }
   ];
 
