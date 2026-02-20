@@ -9,15 +9,25 @@ import {
   FaSortNumericDown,
   FaUserGraduate,
   FaChartLine,
-  FaPalette,   // New for UI/UX
-  FaChartPie   // New for Segmentation
+  FaPalette,   // For UI/UX
+  FaChartPie,  // For Segmentation
+  FaFire       // New for Spicy Koffiracha Project
 } from "react-icons/fa";
 import "./Blogs.css";
 
 export default function Blogs() {
   
   const caseStudies = [
-    // --- NEW PROJECT: FLORA UI/UX ---
+    // --- NEW PROJECT: KOFFIRACHA E-COMMERCE (AT THE TOP) ---
+    {
+      id: 11,
+      title: "Koffiracha E-Commerce",
+      icon: <FaFire />,
+      desc: "A high-performance, neo-brutalist landing page featuring complex scroll physics, parallax animations, and fluid typography. Built to showcase advanced frontend capabilities.",
+      tech: ["React.js", "Tailwind CSS", "Framer Motion", "Vite"],
+      learning: "Mastering complex scroll animations, React component architecture, and modern neo-brutalist UI design principles."
+    },
+    // --- FLORA UI/UX ---
     {
       id: 10,
       title: "FLORA - UI/UX Case Study",
@@ -26,7 +36,7 @@ export default function Blogs() {
       tech: ["Figma", "User Research", "Prototyping", "Wireframing"],
       learning: "User-Centered Design (UCD) principles, visual hierarchy, and creating interactive mockups."
     },
-    // --- NEW PROJECT: CUSTOMER SEGMENTATION ---
+    // --- CUSTOMER SEGMENTATION ---
     {
       id: 9,
       title: "Strategic Customer Segmentation",
@@ -105,7 +115,7 @@ export default function Blogs() {
   return (
     <motion.div
       className="blogs-page"
-      initial={{ opacity: 0, y: 80 }}     
+      initial={{ opacity: 0, y: 80 }}    
       animate={{ opacity: 1, y: 0 }}      
       exit={{ opacity: 0, y: -80 }}       
       transition={{ duration: 0.6, ease: "easeOut" }}

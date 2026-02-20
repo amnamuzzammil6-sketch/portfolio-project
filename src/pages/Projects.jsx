@@ -34,6 +34,13 @@ export default function Projects() {
 
   /* ---------------- FRONTEND PROJECTS ---------------- */
   const webProjects = [
+    // LATEST & MOST ADVANCED PROJECT AT #1
+    {
+      title: "Koffiracha E-Commerce",
+      desc: "High-performance, neo-brutalist landing page featuring complex scroll physics, parallax animations, and fluid typography.",
+      link: "https://spicy-sauce.vercel.app", // Aapka Live Vercel Link
+      external: true
+    },
     {
       title: "Student Data Portal",
       desc: "Product-style data entry system with persistent state using LocalStorage.",
@@ -64,7 +71,6 @@ export default function Projects() {
       link: "/calculator",
       external: false
     },
-    // ADDED: Simple Counter Project
     {
       title: "Simple Counter",
       desc: "Interactive counter application demonstrating React state management and event handling.",
@@ -80,7 +86,6 @@ export default function Projects() {
       desc: "End-to-end UX case study covering research, user flows, wireframes, and high-fidelity UI.",
       link: "/case-studies/flora",
       tags: ["Figma", "UX Research", "Prototyping", "User Flows"],
-      // FIXED: Used a placeholder so it shows up. Replace this with your direct import or valid URL later.
       image: "https://placehold.co/600x400/png?text=Flora+App+Preview"
     }
   ];
@@ -209,7 +214,7 @@ export default function Projects() {
             </motion.div>
           )}
 
-          {/* UX - THIS IS THE FIXED SECTION */}
+          {/* UX */}
           {activeTab === "uiux" && (
             <motion.div
               key="uiux"
@@ -225,7 +230,6 @@ export default function Projects() {
               <div className="projects-grid case-study-grid">
                 {uxProjects.map((project, index) => (
                   <div key={index} className="project-card case-card">
-                    {/* FIXED: Added inline styles and object-fit to prevent layout break */}
                     <div className="image-wrapper" style={{ width: '100%', overflow: 'hidden', borderRadius: '8px 8px 0 0' }}>
                       <img 
                         src={project.image} 
@@ -234,7 +238,7 @@ export default function Projects() {
                       />
                     </div>
 
-                    <div className="card-header">
+                    <div className="card-header" style={{ marginTop: '1rem' }}>
                       <FaPalette className="project-icon icon-gold" />
                       <h3>{project.title}</h3>
                     </div>
