@@ -11,14 +11,24 @@ import {
   FaChartLine,
   FaPalette,   // For UI/UX
   FaChartPie,  // For Segmentation
-  FaFire       // New for Spicy Koffiracha Project
+  FaFire,      // For Spicy Koffiracha Project
+  FaSearch     // 🔥 New for Website Auditor Pro
 } from "react-icons/fa";
 import "./Blogs.css";
 
 export default function Blogs() {
   
   const caseStudies = [
-    // --- NEW PROJECT: KOFFIRACHA E-COMMERCE (AT THE TOP) ---
+    // --- NEW PROJECT: WEBSITE AUDITOR PRO (AT THE TOP) ---
+    {
+      id: 12,
+      title: "Website Auditor Pro",
+      icon: <FaSearch />,
+      desc: "A full-stack React and Python application designed to perform deep UX/UI, SEO, and performance audits. Integrates with the Google PageSpeed Insights API to generate actionable, real-time PDF reports.",
+      tech: ["React.js", "Python/Flask", "REST APIs", "Vercel"],
+      learning: "Architecting a full-stack REST API, managing Cross-Origin Resource Sharing (CORS), and deploying serverless applications."
+    },
+    // --- KOFFIRACHA E-COMMERCE ---
     {
       id: 11,
       title: "Koffiracha E-Commerce",

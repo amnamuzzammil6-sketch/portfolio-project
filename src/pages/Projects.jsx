@@ -13,7 +13,6 @@ import {
 import "./Projects.css";
 
 export default function Projects() {
-  // FRONTEND FIRST
   const [activeTab, setActiveTab] = useState("web");
 
   /* ---------------- DATA PROJECTS ---------------- */
@@ -34,11 +33,18 @@ export default function Projects() {
 
   /* ---------------- FRONTEND PROJECTS ---------------- */
   const webProjects = [
-    // LATEST & MOST ADVANCED PROJECT AT #1
+    // 🔥 LATEST & MOST ADVANCED PROJECT AT #1
+    {
+      title: "Website Auditor Pro",
+      desc: "Full-stack enterprise application. Integrates a React frontend with a Python/Flask REST API to fetch live Google PageSpeed metrics and generate automated UX/UI PDF reports.",
+      link: "https://website-auditor-pro.vercel.app", 
+      external: true,
+      tags: ["React", "Python/Flask", "REST API", "Full-Stack"]
+    },
     {
       title: "Koffiracha E-Commerce",
       desc: "High-performance, neo-brutalist landing page featuring complex scroll physics, parallax animations, and fluid typography.",
-      link: "https://spicy-sauce.vercel.app", // Aapka Live Vercel Link
+      link: "https://spicy-sauce.vercel.app", 
       external: true
     },
     {
@@ -158,6 +164,15 @@ export default function Projects() {
                       <h3>{project.title}</h3>
                     </div>
                     <p>{project.desc}</p>
+                    
+                    {/* 🔥 ADDED: Tech Stack Tags for Frontend Projects! */}
+                    {project.tags && (
+                      <div className="mini-tags">
+                        {project.tags.map(tag => (
+                          <span key={tag}>{tag}</span>
+                        ))}
+                      </div>
+                    )}
 
                     {project.external ? (
                       <a
