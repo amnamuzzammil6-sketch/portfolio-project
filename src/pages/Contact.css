@@ -1,135 +1,187 @@
-/* Contact.css - Sleek Blue Theme */
+/* Contact.css - Blue & Black Theme */
 
 .contact-page {
-  background-color: #0b1120; /* Deep Slate Background */
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 120px 20px 60px; /* Padding for Navbar/Footer */
-  font-family: 'Poppins', sans-serif;
-}
-
-.contact-container {
   width: 100%;
-  max-width: 500px;
-  background: #1e293b; /* Card Background */
-  padding: 40px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  min-height: 100vh;
+  background-color: #0d1117; /* Very dark blue-tinted background */
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
 }
 
-/* Header Text */
-.contact-header {
+/* Header Section */
+.contact-header-section {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
-.contact-header h1 {
-  font-size: 2rem;
-  color: #fff;
+.contact-title {
+  font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
-.contact-header p {
-  color: #94a3b8;
-  font-size: 0.95rem;
+.title-underline {
+  width: 60px;
+  height: 4px;
+  background-color: #3b82f6; /* Vibrant Blue */
+  margin: 0 auto;
+  border-radius: 2px;
 }
 
-/* Form Layout */
-.contact-form {
+/* Main Content Layout */
+.contact-content {
+  display: flex;
+  max-width: 1000px;
+  width: 100%;
+  gap: 60px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* --- LEFT SIDE: Contact Info --- */
+.contact-info-section {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 30px;
+  padding-top: 20px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
   gap: 20px;
 }
 
-.input-group {
-  position: relative;
-}
-
-/* Inputs & Textarea */
-.input-group input,
-.input-group textarea {
-  width: 100%;
-  background: #0f172a; /* Darker Input Background */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
-  padding: 14px 14px 14px 50px; /* Space for Icon */
+.info-icon {
+  width: 45px;
+  height: 45px;
+  background-color: rgba(59, 130, 246, 0.1); /* Transparent blue background */
+  color: #3b82f6; /* Blue icon */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 8px;
-  font-size: 0.95rem;
-  outline: none;
-  transition: all 0.3s ease;
-  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
 }
 
-.input-group textarea {
-  padding: 14px; /* Textarea doesn't have an icon inside usually */
-  resize: vertical;
-}
-
-/* Focus State */
-.input-group input:focus,
-.input-group textarea:focus {
-  border-color: #3b82f6; /* Blue Glow */
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-}
-
-/* Icons inside Input */
-.icon-wrapper {
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #94a3b8;
-  font-size: 1.1rem;
-  pointer-events: none;
-}
-
-.input-group input:focus + .icon-wrapper, 
-.input-group input:focus ~ .icon-wrapper {
-  color: #3b82f6;
-}
-
-/* Button */
-.contact-btn {
-  margin-top: 10px;
-  padding: 14px;
-  background: #3b82f6;
-  color: white;
-  border: none;
-  border-radius: 8px;
+.info-text h4 {
+  margin: 0;
   font-size: 1rem;
   font-weight: 600;
-  cursor: pointer;
+  color: #f1f1f1;
+}
+
+/* Clickable Links Styling */
+.info-text a {
+  margin: 5px 0 0 0;
+  font-size: 0.95rem;
+  color: #a3a3a3; /* Light gray text */
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.info-text a:hover {
+  color: #3b82f6; /* Turns blue on hover */
+}
+
+/* --- RIGHT SIDE: Form --- */
+.contact-form-section {
+  flex: 1.2;
+  background-color: #161b22; /* Dark gray/blue form container */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.contact-form {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #f1f1f1;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 15px;
+  background-color: #0d1117; /* Matching page background inside inputs */
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #3b82f6; /* Blue focus outline */
+}
+
+/* Submit Button */
+.submit-btn {
+  align-self: flex-start;
+  background-color: #3b82f6; /* Blue button */
+  color: #ffffff; 
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.contact-btn:hover {
-  background: #2563eb;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+.submit-btn:hover:not(:disabled) {
+  background-color: #2563eb; /* Slightly darker blue on hover */
 }
 
-.contact-btn:disabled {
+.submit-btn.btn-success {
+  background-color: #10b981; /* Keep it green for success confirmation */
+  color: #fff;
+}
+
+.submit-btn:disabled {
   opacity: 0.7;
   cursor: not-allowed;
-  transform: none;
 }
 
-/* Success State */
-.btn-success {
-  background: #10b981 !important; /* Green */
-  pointer-events: none;
+.error-text {
+  color: #ef4444;
+  font-size: 0.9rem;
+  margin-top: -10px;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 600px) {
-  .contact-container {
+/* Responsive Mobile Layout */
+@media (max-width: 768px) {
+  .contact-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .contact-form-section {
+    width: 100%;
     padding: 30px 20px;
   }
 }

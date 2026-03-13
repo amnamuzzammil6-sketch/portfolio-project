@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaUser, FaEnvelope, FaPaperPlane, FaCheckCircle } from "react-icons/fa"; // Switched to react-icons for consistency
+import { FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaInstagram } from "react-icons/fa";
 import "./Contact.css";
 
 export default function Contact() {
@@ -51,85 +51,114 @@ export default function Contact() {
 
   return (
     <div className="contact-page">
+      <div className="contact-header-section">
+        <h1 className="contact-title">Get In Touch</h1>
+        <div className="title-underline"></div>
+      </div>
+
       <motion.div
-        className="contact-container"
+        className="contact-content"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="contact-header">
-          <h1>Get in Touch</h1>
-          <p>
-            Have a question or want to work together? Drop me a message below.
-          </p>
-        </div>
-
-        <form onSubmit={handleFormSubmission} className="contact-form">
-          {/* Name Input */}
-          <div className="input-group">
-            <div className="icon-wrapper">
-              <FaUser />
-            </div>
-            <input
-              type="text"
-              name="username"
-              value={formData.username}
-              placeholder="Your Name"
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-
-          {/* Email Input */}
-          <div className="input-group">
-            <div className="icon-wrapper">
+        {/* Left Side: Contact Information (All Clickable) */}
+        <div className="contact-info-section">
+          
+          <div className="info-item">
+            <div className="info-icon">
               <FaEnvelope />
             </div>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              placeholder="Your Email"
-              onChange={handleInputChange}
-              required
-            />
+            <div className="info-text">
+              <h4>Email</h4>
+              <a href="mailto:amnamuzzammil6@gmail.com">amnamuzzammil6@gmail.com</a>
+            </div>
           </div>
 
-          {/* Message Input */}
-          <div className="input-group textarea-group">
-            <textarea
-              name="message"
-              value={formData.message}
-              placeholder="How can I help you?"
-              rows={5}
-              onChange={handleInputChange}
-              required
-            ></textarea>
+          <div className="info-item">
+            <div className="info-icon">
+              <FaInstagram />
+            </div>
+            <div className="info-text">
+              <h4>Instagram</h4>
+              <a href="https://www.instagram.com/insightalabs" target="_blank" rel="noopener noreferrer">@insightalabs</a>
+            </div>
           </div>
 
-          {/* Submit Button */}
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            type="submit"
-            className={`contact-btn ${success === "submitted" ? "btn-success" : ""}`}
-            disabled={success === "loading" || success === "submitted"}
-          >
-            {success === "loading" ? (
-              "Sending..."
-            ) : success === "submitted" ? (
-              <>
-                Message Sent <FaCheckCircle style={{ marginLeft: "8px" }} />
-              </>
-            ) : (
-              <>
-                Send Message <FaPaperPlane style={{ marginLeft: "8px" }} />
-              </>
-            )}
-          </motion.button>
+          <div className="info-item">
+            <div className="info-icon">
+              <FaMapMarkerAlt />
+            </div>
+            <div className="info-text">
+              <h4>Location</h4>
+              <a href="https://maps.google.com/?q=Lahore,+Pakistan" target="_blank" rel="noopener noreferrer">Lahore, Pakistan</a>
+            </div>
+          </div>
 
-          {error && <p className="error-text">{error}</p>}
-        </form>
+          <div className="info-item">
+            <div className="info-icon">
+              <FaLinkedin />
+            </div>
+            <div className="info-text">
+              <h4>LinkedIn</h4>
+              <a href="https://www.linkedin.com/in/amna-muzzammil" target="_blank" rel="noopener noreferrer">in/amna-muzzammil</a>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Right Side: The Form */}
+        <div className="contact-form-section">
+          <form onSubmit={handleFormSubmission} className="contact-form">
+            
+            <div className="form-group">
+              <label>Name</label>
+              <input
+                type="text"
+                name="username"
+                value={formData.username}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Message</label>
+              <textarea
+                name="message"
+                value={formData.message}
+                rows={5}
+                onChange={handleInputChange}
+                required
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              className={`submit-btn ${success === "submitted" ? "btn-success" : ""}`}
+              disabled={success === "loading" || success === "submitted"}
+            >
+              {success === "loading"
+                ? "Sending..."
+                : success === "submitted"
+                ? "Message Sent!"
+                : "Send Message"}
+            </button>
+
+            {error && <p className="error-text">{error}</p>}
+          </form>
+        </div>
       </motion.div>
     </div>
   );

@@ -1,172 +1,234 @@
-/* Blogs.css - Case Study & Project Theme */
+/* Blogs.css - Timeline Theme (Blue & Black) */
 
 /* 1. Main Page Background */
 .blogs-page {
-  background-color: #0b1120; /* Deep Slate - Matches Home/Portfolio */
+  background-color: #0d1117; /* Deep blue-tinted black */
   min-height: 100vh;
-  padding: 120px 10% 80px; /* Top padding clears the fixed Navbar */
+  padding: 120px 20px 80px; 
   font-family: 'Poppins', sans-serif;
-  color: white;
+  color: #ffffff;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 /* 2. Page Header */
 .blogs-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 70px;
 }
 
 .blogs-header h1 {
   font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 15px;
-  color: #fff;
-  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+  color: #ffffff;
 }
 
 .blogs-header p {
-  color: #94a3b8; /* Soft Slate Grey */
-  font-size: 1.1rem;
-  max-width: 650px;
+  color: #8b949e; 
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+}
+
+.header-underline {
+  width: 60px;
+  height: 4px;
+  background-color: #3b82f6; /* Vibrant Blue Accent */
   margin: 0 auto;
-  line-height: 1.6;
+  border-radius: 2px;
 }
 
-/* 3. Grid Layout */
-.blogs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-  width: 100%;
+/* 3. Timeline Container Layout */
+.timeline-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0;
 }
 
-/* 4. Card Styling */
-.blog-card {
-  background: #1e293b; /* Card Background */
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
+/* The Central Vertical Line */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: rgba(59, 130, 246, 0.3); /* Dimmed blue line */
+  transform: translateX(-50%);
+}
+
+/* Individual Timeline Wrappers */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+
+.timeline-item.left {
+  left: 0;
+}
+
+.timeline-item.right {
+  left: 50%;
+}
+
+/* The Glowing Dots on the line */
+.timeline-dot {
+  position: absolute;
+  top: 40px; /* Align with the top of the card */
+  width: 16px;
+  height: 16px;
+  background-color: #0d1117;
+  border: 3px solid #3b82f6; /* Blue ring */
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.8);
+}
+
+.timeline-item.left .timeline-dot {
+  right: -8px;
+}
+
+.timeline-item.right .timeline-dot {
+  left: -8px;
+}
+
+/* 4. The Card Design */
+.timeline-card {
+  background-color: #161b22; /* Darker grey/blue for the card */
+  border: 1px solid #30363d; /* Subtle border */
+  border-radius: 12px;
   padding: 30px;
-  display: flex;
-  flex-direction: column;
   transition: all 0.3s ease;
   position: relative;
-  height: 100%; /* Ensures uniform height */
+  text-align: left;
 }
 
-.blog-card:hover {
-  border-color: #3b82f6; /* Blue Glow on Hover */
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+/* Hover Effects */
+.timeline-card:hover {
   transform: translateY(-5px);
+  border-color: #3b82f6;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(59, 130, 246, 0.1);
 }
 
-/* 5. Icon Header (The Blue Box) */
-.card-icon-header {
-  font-size: 1.8rem;
-  color: #3b82f6;
-  margin-bottom: 20px;
-  background: rgba(59, 130, 246, 0.1); /* Transparent Blue */
-  width: 55px;
-  height: 55px;
+.card-top-row {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  border-radius: 12px;
+  margin-bottom: 15px;
 }
 
-/* 6. Card Typography */
-.blog-card h2 {
+.timeline-category {
+  color: #3b82f6; /* Blue Accent Text */
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-icon {
+  color: #8b949e;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.timeline-card:hover .card-icon {
+  color: #3b82f6; /* Icon lights up on hover */
+}
+
+.timeline-card h2 {
   font-size: 1.4rem;
-  margin-bottom: 12px;
-  color: #fff;
+  margin-bottom: 10px;
+  color: #ffffff;
   font-weight: 600;
 }
 
-.card-desc {
-  color: #cbd5e1;
+.timeline-desc {
+  color: #8b949e;
   font-size: 0.95rem;
   line-height: 1.6;
-  margin-bottom: 25px;
-  flex-grow: 1; /* Pushes the sections below to the bottom */
+  margin-bottom: 20px;
 }
 
-/* 7. Sections (Technologies & Learning) */
-.card-section {
-  margin-top: 15px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Divider Line */
-  padding-top: 15px;
-}
-
-.card-section strong {
-  display: block;
-  font-size: 0.8rem;
-  color: #94a3b8; /* Muted label text */
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-weight: 600;
-}
-
-/* 8. Tech Tags (The Pills) */
-.tech-tags {
+/* 5. Tech Tags */
+.timeline-tech {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-bottom: 15px;
 }
 
 .tech-tag {
-  background: #0f172a; /* Darker background for contrast */
-  color: #3b82f6; /* Blue Text */
-  font-size: 0.8rem;
-  padding: 5px 12px;
-  border-radius: 20px;
+  background: rgba(59, 130, 246, 0.1); /* Transparent Blue */
+  color: #3b82f6;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 4px;
   font-weight: 500;
-  border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
-/* 9. Key Learning Text */
-.learning-text {
-  font-size: 0.9rem;
-  color: #e2e8f0; /* Brighter white for emphasis */
-  font-style: italic;
+/* 6. Learning Section */
+.timeline-learning {
+  font-size: 0.85rem;
+  color: #c9d1d9;
   line-height: 1.5;
-  background: rgba(255, 255, 255, 0.03);
-  padding: 10px;
-  border-radius: 8px;
-  border-left: 3px solid #3b82f6; /* Blue Accent Bar */
+  padding-top: 15px;
+  border-top: 1px solid #30363d;
 }
 
-/* 10. Mobile Responsiveness */
-@media (max-width: 768px) {
-  .blogs-page {
-    padding: 100px 20px 60px;
-  }
-
-  .blogs-header h1 {
-    font-size: 2rem;
-  }
-  
-  .blogs-grid {
-    grid-template-columns: 1fr; /* Stack cards on phone */
-  }
+.timeline-learning strong {
+  color: #ffffff;
 }
 
-
+/* External Link */
 .card-link-container {
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+  margin-top: 20px;
 }
 
 .card-external-link {
-    color: #64ffda; /* Professional Cyan/Teal color */
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: inline-block;
+  color: #3b82f6;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
 }
 
 .card-external-link:hover {
-    color: #007bff;
-    transform: translateX(5px); /* Small nudge effect */
+  color: #60a5fa; /* Lighter blue on hover */
+  transform: translateX(3px);
+}
+
+/* 7. Mobile Responsiveness */
+@media (max-width: 768px) {
+  .blogs-page {
+    padding: 100px 15px 60px;
+  }
+  
+  /* Move line to the left */
+  .timeline-line {
+    left: 20px;
+    transform: none;
+  }
+  
+  /* Make cards full width and add padding on the left */
+  .timeline-item {
+    width: 100%;
+    padding: 20px 0 20px 50px;
+  }
+  
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+  }
+  
+  /* Align all dots to the left line */
+  .timeline-item.left .timeline-dot,
+  .timeline-item.right .timeline-dot {
+    left: 12px; /* 20px (line) - 8px (half of dot width) */
+    right: auto;
+  }
 }
