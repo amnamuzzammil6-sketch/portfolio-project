@@ -1,150 +1,149 @@
-/* Calculator.css - Complete Fixed Version */
+/* Calculator.css - Glassmorphism Theme */
 
-/* 1. Page Background & Layout */
 .calculator-container {
   width: 100%;
-  min-height: 100vh; /* Takes full screen height */
-  background-color: #0b1120; /* Deep Slate - Matches Home */
+  min-height: 100vh;
+  /* Dark, starry night sky landscape */
+  background: url('https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?auto=format&fit=crop&w=2000&q=80') no-repeat center center;
+  background-size: cover;
   display: flex;
   justify-content: center;
-  align-items: center; /* Centers the calculator vertically */
+  align-items: flex-start;
   font-family: 'Poppins', sans-serif;
-  
-  /* --- THE FIX: Pushes calculator down below the 80px Navbar --- */
-  padding-top: 100px; 
-  padding-bottom: 40px;
-  box-sizing: border-box; 
+  padding-top: 80px; 
+  padding-bottom: 60px;
+  box-sizing: border-box;
 }
 
-/* 2. Main Calculator Card */
 .calculator-card {
-  background: #1e293b; /* Professional Slate Grey Card */
+  background: rgba(15, 23, 42, 0.3); /* Dark glass */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); /* Deep Shadow */
-  border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle Glass Border */
+  border-radius: 24px;
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   width: 100%;
-  max-width: 380px;
+  max-width: 400px; 
   text-align: center;
-  position: relative; /* Keeps it stable */
+  color: #fff;
 }
 
-/* 3. Typography */
 .calculator-title {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #fff;
   margin-bottom: 5px;
-  font-weight: 600;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
 .calculator-desc {
   font-size: 0.9rem;
-  color: #94a3b8; /* Muted Slate Text */
+  color: #cbd5e1;
   margin-bottom: 25px;
+  font-weight: 300;
 }
 
-/* 4. The Screen (Input) */
+/* Screen */
 .calculator-screen {
   width: 100%;
-  height: 70px;
-  background-color: #0f172a; /* Darker than card background */
-  border: 1px solid #334155;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 2.2rem;
+  padding: 20px;
+  font-size: 2.5rem;
   text-align: right;
-  padding: 0 15px;
-  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border-radius: 16px;
+  margin-bottom: 15px;
   outline: none;
-  font-family: 'Courier New', monospace; /* Digital/Code Look */
   box-sizing: border-box;
+  font-family: monospace;
+  box-shadow: inset 0 4px 6px rgba(0,0,0,0.3);
 }
 
 .calculator-screen::placeholder {
-  color: #334155;
+  color: #94a3b8;
 }
 
-/* 5. Button Grid Layout */
+/* Clear Button */
+.calc-btn-clear {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  background: rgba(239, 68, 68, 0.3); /* Soft red glass */
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  color: #fff;
+  border-radius: 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.calc-btn-clear:hover {
+  background: rgba(239, 68, 68, 0.6);
+}
+
+/* Button Grid */
 .calculator-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 Equal Columns */
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
-/* Base Button Style */
 .calc-btn {
-  padding: 15px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
+  padding: 20px 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
   cursor: pointer;
   transition: all 0.2s ease;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #fff;
 }
 
-.calc-btn:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.1);
-}
-
-.calc-btn:active {
-  transform: scale(0.95);
-}
-
-/* Specific Button Colors */
 .calc-btn-num {
-  background-color: #334155; /* Dark Grey Keys for Numbers */
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.calc-btn-num:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .calc-btn-operator {
-  background-color: #0ea5e9; /* Sky Blue for Operators (+ - * /) */
+  background: rgba(59, 130, 246, 0.3); /* Blue glass */
+  border: 1px solid rgba(59, 130, 246, 0.5);
+}
+
+.calc-btn-operator:hover {
+  background: rgba(59, 130, 246, 0.6);
 }
 
 .calc-btn-equal {
-  background-color: #3b82f6; /* Royal Blue for Equals */
-  grid-row: span 1; 
+  background: rgba(16, 185, 129, 0.4); /* Green glass */
+  border: 1px solid rgba(16, 185, 129, 0.5);
 }
 
-/* Clear Button (Spans full width) */
-.calc-btn-clear {
-  grid-column: span 4; /* Takes up all 4 columns */
-  background-color: #ef4444; /* Red for Clear */
-  font-size: 1rem;
-  gap: 8px;
-  letter-spacing: 1px;
+.calc-btn-equal:hover {
+  background: rgba(16, 185, 129, 0.7);
 }
 
-/* 6. Back Link */
+/* Back Link */
 .back-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #94a3b8;
+  color: #cbd5e1;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   transition: color 0.3s ease;
-  margin-top: 10px;
 }
 
 .back-link:hover {
-  color: #3b82f6; /* Blue hover effect */
-}
-
-/* 7. Mobile Responsiveness */
-@media (max-width: 480px) {
-  .calculator-card {
-    padding: 25px;
-    max-width: 90%;
-  }
-
-  .calc-btn {
-    padding: 12px;
-    font-size: 1.1rem;
-  }
+  color: #fff;
 }

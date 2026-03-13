@@ -1,5 +1,6 @@
 import React from "react";
-import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+// Added FaInstagram to the import list
+import { FaLinkedin, FaGithub, FaEnvelope, FaInstagram } from "react-icons/fa"; 
 import "./Footer.css";
 
 const Footer = () => {
@@ -15,16 +16,21 @@ const Footer = () => {
 
         {/* 2. Social Icons (Centered & Prominent) */}
         <div className="footer-socials">
-         
           <a href="https://www.linkedin.com/in/amna-muzzammil" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <FaLinkedin />
           </a>
-         
+          
           <a href="https://github.com/amnamuzzammil6-sketch" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <FaGithub />
           </a>
+          
           <a href="mailto:amnamuzzammil6@gmail.com" aria-label="Email">
             <FaEnvelope />
+          </a>
+
+          {/* New InsightaLabs Instagram Link */}
+          <a href="https://www.instagram.com/insightalabs" target="_blank" rel="noopener noreferrer" aria-label="InsightaLabs Instagram">
+            <FaInstagram />
           </a>
         </div>
 

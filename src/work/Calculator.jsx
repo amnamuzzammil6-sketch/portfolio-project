@@ -50,14 +50,13 @@ export default function Calculator() {
           readOnly
         />
 
+        {/* Clear Button */}
+        <button className="calc-btn-clear" onClick={clearInput}>
+          <FaEraser /> Clear Display
+        </button>
+
         {/* Grid of Buttons */}
         <div className="calculator-grid">
-          {/* Clear Button (Full Width) */}
-          <button className="calc-btn calc-btn-clear" onClick={clearInput}>
-            <FaEraser /> Clear Display
-          </button>
-
-          {/* Number & Operator Buttons */}
           {buttons.map((btn, index) => (
             <button
               key={index}

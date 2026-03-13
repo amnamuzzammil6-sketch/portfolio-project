@@ -1,86 +1,142 @@
-/* Todo.css - Executive Theme */
+/* Todo.css - Glassmorphism Theme */
 
-/* 1. Page Layout (Matches Calculator Fix) */
+/* 1. Page Layout & Background */
 .todo-page {
   width: 100%;
   min-height: 100vh;
-  background-color: #0b1120; /* Deep Slate Background */
+  /* Applying an online landscape image from Unsplash */
+  background: url('https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=2000&q=80') no-repeat center center;
+  background-size: cover;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Aligns to top, not center, for long lists */
+  align-items: flex-start;
   font-family: 'Poppins', sans-serif;
-  
-  /* IMPORTANT: Clears the Navbar */
-  padding-top: 120px; 
+  padding-top: 100px; 
   padding-bottom: 60px;
   box-sizing: border-box;
 }
 
-/* 2. Main Card */
+/* 2. Glassmorphism Main Card */
 .todo-card {
-  background: #1e293b; /* Professional Card Grey */
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+  backdrop-filter: blur(12px); /* The glass blur effect */
+  -webkit-backdrop-filter: blur(12px);
   padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px; /* Softer, rounder corners */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Light border for glass edge */
   width: 100%;
-  max-width: 500px; /* Slightly wider than calculator */
+  max-width: 450px; 
   text-align: center;
 }
 
-/* 3. Typography */
+/* 3. Typography & Header */
 .todo-title {
-  font-size: 2rem;
-  color: #fff;
-  margin-bottom: 5px;
-  font-weight: 600;
+  font-size: 2.2rem;
+  color: #1a365d; /* Dark navy blue to match image */
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
-.todo-desc {
-  font-size: 0.95rem;
-  color: #94a3b8; /* Slate Text */
+/* Progress Section */
+.progress-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.progress-text {
+  font-weight: 600;
+  color: #fff;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.progress-circle {
+  background: #0f172a;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 /* 4. Input Section */
 .todo-input-group {
   display: flex;
-  gap: 10px;
-  margin-bottom: 30px;
+  position: relative;
+  margin-bottom: 20px;
 }
 
 .todo-input-group input {
   flex: 1;
-  padding: 15px;
-  border-radius: 8px;
-  border: 1px solid #334155;
-  background-color: #0f172a; /* Dark Input Background */
-  color: white;
+  padding: 15px 50px 15px 20px; /* Room for absolute button */
+  border-radius: 30px; /* Pill shape */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #333;
   font-size: 1rem;
   outline: none;
-  transition: border-color 0.3s ease;
+  font-weight: 500;
 }
 
-.todo-input-group input:focus {
-  border-color: #3b82f6; /* Blue Focus */
+.todo-input-group input::placeholder {
+  color: #555;
 }
 
-.todo-input-group button {
-  background-color: #3b82f6; /* Blue Button */
-  color: white;
+.todo-input-group .add-btn {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #333;
   border: none;
-  padding: 0 20px;
-  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
 }
 
-.todo-input-group button:hover {
-  background-color: #2563eb;
+.todo-input-group .add-btn:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Filter Buttons */
+.todo-filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.filter-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+  color: #1a365d;
+  text-shadow: none;
 }
 
 /* 5. List Items */
@@ -92,64 +148,121 @@
 }
 
 .no-task {
-  color: #64748b;
+  color: #fff;
   text-align: center;
   font-style: italic;
   margin-top: 20px;
 }
 
 .todo-item {
-  background-color: #334155; /* Item Background */
-  margin-bottom: 10px;
-  padding: 15px;
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-bottom: 12px;
+  padding: 12px 18px;
+  border-radius: 20px; /* Pill shape for items */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #fff;
+  color: #1a365d;
+  font-weight: 600;
   transition: all 0.2s ease;
-  cursor: pointer; /* Suggests clickable */
+  cursor: pointer;
+  min-height: 50px;
 }
 
 .todo-item:hover {
-  transform: translateX(5px);
-  background-color: #475569;
+  background: rgba(255, 255, 255, 0.4);
 }
 
 /* Completed State */
 .todo-item.completed .task-text {
   text-decoration: line-through;
-  color: #94a3b8; /* Dimmed Text */
+  color: #555;
+  font-weight: 400;
 }
 
 .task-text {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-size: 1rem;
+  flex: 1;
 }
 
 .check-icon {
-  color: #10b981; /* Green Checkmark */
-  font-size: 0.9rem;
+  color: #1a365d;
+  font-size: 1.2rem;
 }
 
-/* Delete Button */
-.delete-btn {
-  background: transparent;
-  border: none;
-  color: #ef4444; /* Red Trash Icon */
-  cursor: pointer;
+.uncheck-icon {
+  color: #777;
+}
+
+/* Edit Mode Styles */
+.edit-mode {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+.edit-input {
+  flex: 1;
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #1a365d;
   font-size: 1rem;
-  padding: 5px;
-  transition: transform 0.2s ease;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+}
+
+.save-btn {
+  background-color: #3b82f6; /* Blue for save */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-.delete-btn:hover {
-  transform: scale(1.2);
-  color: #fca5a5;
+/* Action Buttons (Edit & Delete) */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn, .delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  width: 32px;
+  height: 32px;
+}
+
+.edit-btn {
+  background-color: #10b981; /* Green */
+  color: white;
+}
+
+.delete-btn {
+  background-color: #ef4444; /* Red */
+  color: white;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+  transform: scale(1.1);
 }
 
 /* 6. Back Link */
@@ -157,19 +270,22 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #94a3b8;
+  color: #fff;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 500;
   transition: color 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .back-link:hover {
-  color: #3b82f6;
+  color: #cbe3ff;
 }
 
 /* Mobile Fix */
 @media (max-width: 480px) {
   .todo-card {
     padding: 25px;
+    border-radius: 16px;
   }
 }

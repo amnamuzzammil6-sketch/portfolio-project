@@ -45,7 +45,7 @@ export default function Weather() {
         transition={{ duration: 0.5 }}
       >
         <h1 className="weather-title">Live Weather</h1>
-        <p className="weather-subtitle">Real-time data via OpenWeatherMap API.</p>
+        <p className="weather-subtitle">Real-time data via OpenWeatherMap API</p>
 
         {/* Search Bar */}
         <div className="weather-input-group">
@@ -56,7 +56,7 @@ export default function Weather() {
             onChange={(e) => setCity(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && fetchWeather()}
           />
-          <button onClick={fetchWeather} aria-label="Search">
+          <button onClick={fetchWeather} aria-label="Search" className="search-btn">
             <FaSearch />
           </button>
         </div>
@@ -71,9 +71,11 @@ export default function Weather() {
               className="weather-result"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
             >
               <div className="location-tag">
-                <FaMapMarkerAlt /> {weather.name}, {weather.sys.country}
+                <FaMapMarkerAlt className="location-icon"/> 
+                {weather.name}, {weather.sys.country}
               </div>
               
               <div className="main-temp">

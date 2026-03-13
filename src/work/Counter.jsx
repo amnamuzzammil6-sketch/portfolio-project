@@ -5,10 +5,8 @@ import { motion } from "framer-motion";
 import { FaArrowLeft, FaRedo, FaMinus, FaPlus } from "react-icons/fa";
 
 const Counter = () => {
-  // The React Hook that tracks the number
   const [count, setCount] = useState(0);
 
-  // Logic functions
   const increment = () => setCount(count + 1);
   const decrement = () => setCount(count - 1);
   const reset = () => setCount(0);

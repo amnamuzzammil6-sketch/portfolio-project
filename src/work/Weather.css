@@ -1,151 +1,175 @@
+/* Weather.css - Glassmorphism Theme */
 
-
-/* 1. Page Layout */
+/* 1. Page Layout & Background */
 .weather-page {
   width: 100%;
   min-height: 100vh;
-  background-color: #0b1120; /* Matches Home/Portfolio */
+  /* Applying a moody/atmospheric sky landscape image */
+  background: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=80') no-repeat center center;
+  background-size: cover;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Aligns to top for better scrolling */
+  align-items: flex-start;
   font-family: 'Poppins', sans-serif;
-  
-  /* NAVBAR FIX */
-  padding-top: 120px;
+  padding-top: 100px; 
   padding-bottom: 60px;
   box-sizing: border-box;
 }
 
-/* 2. Main Card */
+/* 2. Glassmorphism Main Card */
 .weather-card {
-  background: #1e293b; /* Professional Card Grey */
+  background: rgba(15, 23, 42, 0.4); /* Slightly darker glass for weather */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   width: 100%;
-  max-width: 450px;
+  max-width: 450px; 
   text-align: center;
+  color: #fff;
 }
 
-/* 3. Typography */
+/* 3. Typography & Header */
 .weather-title {
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: #fff;
   margin-bottom: 5px;
-  font-weight: 600;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
 .weather-subtitle {
   font-size: 0.95rem;
-  color: #94a3b8;
+  color: #cbd5e1;
   margin-bottom: 30px;
+  font-weight: 300;
 }
 
 /* 4. Input Section */
 .weather-input-group {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  position: relative;
+  margin-bottom: 25px;
 }
 
 .weather-input-group input {
   flex: 1;
-  padding: 15px;
-  border-radius: 8px;
-  border: 1px solid #334155;
-  background-color: #0f172a;
-  color: white;
+  padding: 15px 50px 15px 20px; 
+  border-radius: 30px; 
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
   font-size: 1rem;
   outline: none;
-  transition: border-color 0.3s ease;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.weather-input-group input::placeholder {
+  color: #cbd5e1;
 }
 
 .weather-input-group input:focus {
-  border-color: #3b82f6;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
-.weather-input-group button {
-  background-color: #3b82f6; /* Blue Button */
-  color: white;
+.search-btn {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
   border: none;
-  padding: 0 20px;
-  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 1.1rem;
-  transition: background 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.2s ease;
 }
 
-.weather-input-group button:hover {
-  background-color: #2563eb;
+.search-btn:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #0f172a;
 }
 
-/* 5. Error Message */
 .weather-error {
-  color: #ef4444; /* Red */
-  background: rgba(239, 68, 68, 0.1);
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
   padding: 10px;
-  border-radius: 6px;
-  font-size: 0.9rem;
+  border-radius: 12px;
   margin-bottom: 20px;
+  font-size: 0.9rem;
 }
 
-/* 6. Weather Results */
+/* 5. Weather Results */
 .weather-result {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 25px 20px;
+  margin-bottom: 30px;
 }
 
 .location-tag {
-  color: #cbd5e1;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin-bottom: 10px;
+}
+
+.location-icon {
+  color: #fca5a5; /* Soft red for the map marker */
 }
 
 .main-temp {
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: 700;
-  color: #fff;
   line-height: 1;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 
 .weather-desc {
-  color: #3b82f6; /* Blue Accent */
+  font-size: 1.2rem;
   text-transform: capitalize;
-  font-size: 1.1rem;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
+  color: #e2e8f0;
+  font-weight: 400;
 }
 
-/* 7. Details Grid (Humidity, Wind, etc.) */
+/* 6. Details Grid */
 .weather-details {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .detail-box {
-  background: #334155;
+  background: rgba(0, 0, 0, 0.2);
   padding: 15px 10px;
-  border-radius: 8px;
+  border-radius: 16px;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .detail-box .icon {
   font-size: 1.2rem;
-  color: #94a3b8;
+  color: #93c5fd; /* Soft blue for weather icons */
   margin-bottom: 5px;
 }
 
@@ -156,30 +180,32 @@
 
 .detail-box strong {
   font-size: 1rem;
-  color: #fff;
+  font-weight: 600;
 }
 
-/* 8. Back Link */
+/* 7. Back Link */
 .back-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #94a3b8;
+  color: #cbd5e1;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .back-link:hover {
-  color: #3b82f6;
+  color: #fff;
 }
 
 /* Mobile Fix */
 @media (max-width: 480px) {
   .weather-card {
     padding: 25px;
+    border-radius: 16px;
   }
-  .main-temp {
-    font-size: 3rem;
+  .weather-details {
+    flex-direction: column;
   }
 }

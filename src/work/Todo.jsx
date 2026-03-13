@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Todo.css";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaArrowLeft, FaPlus, FaTrash, FaCheck } from "react-icons/fa";
+import { FaArrowLeft, FaPlus, FaTrash, FaPen, FaRegCircle, FaCheckCircle, FaCheck } from "react-icons/fa";
 
 export default function ToDo() {
   // Load initial tasks from Local Storage
@@ -12,6 +12,11 @@ export default function ToDo() {
   });
   
   const [task, setTask] = useState("");
+  const [filter, setFilter] = useState("All");
+  
+  // Edit State
+  const [editingIndex, setEditingIndex] = useState(null);
+  const [editingText, setEditingText] = useState("");
 
   // Save to Local Storage whenever tasks change
   useEffect(() => {
@@ -27,6 +32,7 @@ export default function ToDo() {
 
   const deleteTask = (index) => {
     setTasks(tasks.filter((_, i) => i !== index));
+    if (editingIndex === index) setEditingIndex(null); // Close edit mode if deleted
   };
 
   const toggleComplete = (index) => {
@@ -34,6 +40,31 @@ export default function ToDo() {
     newTasks[index].completed = !newTasks[index].completed;
     setTasks(newTasks);
   };
+
+  // Edit Functions
+  const startEditing = (index, currentText) => {
+    setEditingIndex(index);
+    setEditingText(currentText);
+  };
+
+  const saveEdit = (index) => {
+    if (editingText.trim() !== "") {
+      const newTasks = [...tasks];
+      newTasks[index].text = editingText;
+      setTasks(newTasks);
+    }
+    setEditingIndex(null);
+    setEditingText("");
+  };
+
+  // Filter Logic
+  const filteredTasks = tasks.filter(t => {
+    if (filter === "Active") return !t.completed;
+    if (filter === "Completed") return t.completed;
+    return true;
+  });
+
+  const completedCount = tasks.filter(t => t.completed).length;
 
   return (
     <div className="todo-page">
@@ -43,10 +74,15 @@ export default function ToDo() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="todo-title">Task Manager</h1>
-        <p className="todo-desc">
-          Persistent list using <strong>Local Storage</strong>.
-        </p>
+        <h1 className="todo-title">To Do App</h1>
+        
+        {/* Progress Section */}
+        <div className="progress-section">
+          <p className="progress-text">You're Crushing It!</p>
+          <div className="progress-circle">
+            {completedCount} / {tasks.length}
+          </div>
+        </div>
 
         {/* Input Area */}
         <div className="todo-input-group">
@@ -54,49 +90,95 @@ export default function ToDo() {
             type="text"
             value={task}
             onChange={(e) => setTask(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && addTask()} // Allow Enter key
-            placeholder="What needs to be done?"
+            onKeyDown={(e) => e.key === "Enter" && addTask()}
+            placeholder="Add New Task..."
           />
-          <button onClick={addTask} aria-label="Add Task">
+          <button onClick={addTask} aria-label="Add Task" className="add-btn">
             <FaPlus />
           </button>
+        </div>
+
+        {/* Filter Buttons */}
+        <div className="todo-filters">
+          {["All", "Active", "Completed"].map(f => (
+            <button 
+              key={f} 
+              className={`filter-btn ${filter === f ? "active" : ""}`}
+              onClick={() => setFilter(f)}
+            >
+              {f}
+            </button>
+          ))}
         </div>
 
         {/* Task List */}
         <ul className="todo-list">
           <AnimatePresence>
-            {tasks.length === 0 ? (
+            {filteredTasks.length === 0 ? (
               <motion.li 
                 className="no-task"
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }}
               >
-                No tasks yet. Add one above!
+                No tasks found.
               </motion.li>
             ) : (
-              tasks.map((t, i) => (
-                <motion.li
-                  key={i}
-                  className={`todo-item ${t.completed ? "completed" : ""}`}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 20 }}
-                  layout
-                >
-                  <span onClick={() => toggleComplete(i)} className="task-text">
-                    {t.completed && <FaCheck className="check-icon" />}
-                    {t.text}
-                  </span>
-                  
-                  <button 
-                    className="delete-btn" 
-                    onClick={() => deleteTask(i)}
-                    aria-label="Delete Task"
+              filteredTasks.map((t, i) => {
+                // Find original index for deleting/toggling correct item when filtered
+                const originalIndex = tasks.findIndex(orig => orig === t);
+                
+                return (
+                  <motion.li
+                    key={originalIndex}
+                    className={`todo-item ${t.completed ? "completed" : ""}`}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 20 }}
+                    layout
                   >
-                    <FaTrash />
-                  </button>
-                </motion.li>
-              ))
+                    {/* Check if we are editing this specific task */}
+                    {editingIndex === originalIndex ? (
+                      <div className="edit-mode">
+                        <input 
+                          type="text" 
+                          value={editingText} 
+                          onChange={(e) => setEditingText(e.target.value)}
+                          onKeyDown={(e) => e.key === "Enter" && saveEdit(originalIndex)}
+                          className="edit-input"
+                          autoFocus
+                        />
+                        <button className="save-btn" onClick={() => saveEdit(originalIndex)}>
+                          <FaCheck />
+                        </button>
+                      </div>
+                    ) : (
+                      <>
+                        <span onClick={() => toggleComplete(originalIndex)} className="task-text">
+                          {t.completed ? <FaCheckCircle className="check-icon" /> : <FaRegCircle className="check-icon uncheck-icon" />}
+                          {t.text}
+                        </span>
+                        
+                        <div className="action-buttons">
+                          <button 
+                            className="edit-btn" 
+                            onClick={() => startEditing(originalIndex, t.text)}
+                            aria-label="Edit Task"
+                          >
+                            <FaPen />
+                          </button>
+                          <button 
+                            className="delete-btn" 
+                            onClick={() => deleteTask(originalIndex)}
+                            aria-label="Delete Task"
+                          >
+                            <FaTrash />
+                          </button>
+                        </div>
+                      </>
+                    )}
+                  </motion.li>
+                );
+              })
             )}
           </AnimatePresence>
         </ul>
