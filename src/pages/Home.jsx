@@ -3,12 +3,20 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ReactTyped } from "react-typed";
 import "./Home.css";
+// 1. Import the video explicitly 
+import techVideo from "../assets/tech-bg.mp4"; 
 
 const Home = () => {
   return (
     <div className="home-container">
-      <div className="background-grid"></div>
-      <div className="glow-orb"></div>
+      {/* --- VIDEO BACKGROUND --- */}
+      <div className="video-background">
+        {/* 2. Pass the imported variable directly to src */}
+        <video autoPlay loop muted playsInline className="video-content">
+          <source src={techVideo} type="video/mp4" />
+        </video>
+        <div className="video-overlay"></div>
+      </div>
 
       <motion.section 
         className="hero-section"
@@ -17,7 +25,7 @@ const Home = () => {
         transition={{ duration: 0.8 }}
       >
         <span className="hero-intro">
-           GOOGLE CERTIFIED • UI/UX DESIGN • DATA ANALYTICS
+            GOOGLE CERTIFIED • UI/UX DESIGN • DATA ANALYTICS
         </span>
 
         <h1 className="hero-name">
@@ -41,7 +49,6 @@ const Home = () => {
             </h2>
         </div>
 
-        
         <p className="hero-desc">
           Specializing in <strong>Data-Driven Design</strong>. I combine 
           <strong> Google-certified Analytics & UI/UX</strong> with <strong>React.js</strong> to 
@@ -49,17 +56,13 @@ const Home = () => {
         </p>
 
         <div className="hero-buttons">
-          {/* PRIMARY: Go to your new "Technical Portfolio" page */}
           <Link to="/portfolio" className="btn-primary">
             View Projects
           </Link>
-
-          {/* SECONDARY: Changed from "View Case Study" to "Contact Me" */}
           <Link to="/contact" className="btn-outline">
             Contact Me
           </Link>
         </div>
-
       </motion.section>
     </div>
   );

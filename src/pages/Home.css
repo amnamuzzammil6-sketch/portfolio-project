@@ -1,7 +1,6 @@
-/* Home.css - Seamless Tech Aesthetic with Interactive Buttons */
+/* Home.css - Seamless Tech Aesthetic with Local Video Background */
 
 .home-container {
-  background-color: #0b1120; /* MATCHED TO NAV & FOOTER */
   color: white;
   min-height: 100vh;
   padding-top: 80px;
@@ -12,34 +11,41 @@
   align-items: center;
 }
 
-/* 1. Background Texture */
-.background-grid {
+/* 1. Video Background & Overlay */
+.video-background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 35px 35px;
-  pointer-events: none;
-  z-index: 1;
+  z-index: 0; /* Sits behind everything */
 }
 
-.glow-orb {
+.video-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures no awkward stretching */
+}
+
+.video-overlay {
   position: absolute;
-  top: 25%;
-  left: 15%;
-  width: 450px;
-  height: 450px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
-  filter: blur(80px);
-  pointer-events: none;
-  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Fading gradient overlay to match your dark blue branding */
+  background: linear-gradient(
+    90deg, 
+    rgba(11, 17, 32, 0.95) 0%, 
+    rgba(11, 17, 32, 0.7) 50%, 
+    rgba(11, 17, 32, 0.3) 100%
+  );
 }
 
+/* 2. Hero Section Typography */
 .hero-section {
   position: relative;
-  z-index: 2;
+  z-index: 2; /* Brings content in front of video */
   padding: 0 10%;
   max-width: 1100px;
   text-align: left;
@@ -55,6 +61,8 @@
   padding: 8px 16px;
   border-radius: 100px;
   display: inline-block;
+  background: rgba(11, 17, 32, 0.6); /* Dark bg to pop against video */
+  backdrop-filter: blur(4px);
 }
 
 .hero-name {
@@ -62,26 +70,38 @@
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 20px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8); /* Enhances readability */
 }
 
 .highlight {
   background: linear-gradient(135deg, #3b82f6 0%, #93c5fd 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4)); /* Neon glow effect */
 }
 
-.role-wrapper { height: 30px; margin-bottom: 25px; }
-.hero-role { font-size: 1.4rem; color: #94a3b8; font-weight: 400; }
+.role-wrapper { 
+  height: 30px; 
+  margin-bottom: 25px; 
+}
+
+.hero-role { 
+  font-size: 1.4rem; 
+  color: #94a3b8; 
+  font-weight: 400; 
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
 
 .hero-desc {
   font-size: 1.15rem;
-  color: #94a3b8;
+  color: #cbd5e1; 
   line-height: 1.6;
   margin-bottom: 40px;
   max-width: 550px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
-/* 2. UPDATED BUTTONS WITH HOVER EFFECTS */
+/* 3. Interactive Buttons */
 .hero-buttons {
   display: flex;
   gap: 20px;
@@ -102,14 +122,14 @@
 
 .btn-primary:hover {
   background: #2563eb;
-  transform: translateY(-3px); /* Lifts the button */
-  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4); /* Adds a blue glow */
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
   border-color: #60a5fa;
 }
 
 .btn-outline {
   padding: 14px 32px;
-  background: transparent;
+  background: rgba(11, 17, 32, 0.4); /* Transparent dark base */
   color: #f8fafc;
   text-decoration: none;
   border-radius: 8px;
@@ -117,20 +137,22 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-block;
+  backdrop-filter: blur(8px); /* Frosted glass effect */
 }
 
 .btn-outline:hover {
-  background: rgba(59, 130, 246, 0.1); /* Subtle blue tint */
+  background: rgba(59, 130, 246, 0.15);
   border-color: #3b82f6;
-  color: #3b82f6;
-  transform: translateY(-3px); /* Lifts the button */
+  color: #93c5fd;
+  transform: translateY(-3px);
 }
 
-/* ACTIVE STATE (When clicked) */
+/* Active Click State */
 .btn-primary:active, .btn-outline:active {
   transform: translateY(-1px);
 }
 
+/* 4. Mobile Responsiveness */
 @media (max-width: 768px) {
   .hero-section { padding: 0 8%; }
   .hero-buttons { flex-direction: column; width: 100%; }
