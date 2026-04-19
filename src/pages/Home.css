@@ -369,42 +369,106 @@
 }
 @keyframes particle-float {
   0%   { opacity: 0;   transform: translateY(0)   scale(0.5); }
-  15%  { opacity: 0.3;                                         }
-  85%  { opacity: 0.15;                                        }
+  15%  { opacity: 0.3;                                        }
+  85%  { opacity: 0.15;                                       }
   100% { opacity: 0;   transform: translateY(-160px) scale(1); }
 }
 
 /* ═══════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE (UPGRADED FOR MOBILE UX)
 ═══════════════════════════════════════ */
 @media (max-width: 1024px) {
   .hero-section {
     grid-template-columns: 1fr;
-    padding: 100px 32px 80px;
-    gap: 60px;
+    /* Increased top padding so the header doesn't overlap the content */
+    padding: 120px 5% 80px; 
+    gap: 40px;
   }
+  
+  /* REMOVED order: -1; so the text naturally sits above the visual on mobile */
   .hero-right {
-    height: 380px;
-    order: -1;
+    height: 400px;
+    margin-top: 20px;
   }
+  
   .orb-ring-1 { width: 340px; height: 340px; }
   .orb-ring-2 { width: 268px; height: 268px; }
   .orb-ring-3 { width: 200px; height: 200px; }
   .orb-core   { width: 160px; height: 160px; }
-  .hero-left  { align-items: center; text-align: center; }
-  .hero-desc  { max-width: 580px; }
-  .hero-badge, .hero-buttons { justify-content: center; }
-  .role-wrapper { justify-content: center; }
+  
+  /* Centering the text content cleanly */
+  .hero-left  { 
+    align-items: center; 
+    text-align: center; 
+  }
+  
+  .hero-desc  { 
+    max-width: 580px; 
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-badge, .hero-buttons { 
+    justify-content: center; 
+  }
+  
+  .role-wrapper { 
+    justify-content: center; 
+    flex-wrap: wrap; /* Allows text to wrap safely on small screens */
+  }
 }
 
 @media (max-width: 600px) {
-  .hero-section { padding: 90px 20px 60px; }
-  .hero-name { font-size: 2rem; }
-  .hero-right { height: 300px; }
-  .orb-ring-1 { width: 270px; height: 270px; }
-  .orb-ring-2 { width: 208px; height: 208px; }
-  .orb-ring-3 { width: 150px; height: 150px; }
+  .hero-section { 
+    padding: 100px 20px 60px; 
+    gap: 30px;
+  }
+  
+  /* Fluid typography so the headline scales perfectly without breaking */
+  .hero-name { 
+    font-size: clamp(2rem, 8vw, 2.5rem); 
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+  
+  /* Adjusted badge for smaller screens */
+  .hero-badge {
+    font-size: 0.65rem;
+    padding: 6px 12px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .hero-right { 
+    height: 320px; 
+  }
+  
+  .orb-ring-1 { width: 280px; height: 280px; }
+  .orb-ring-2 { width: 220px; height: 220px; }
+  .orb-ring-3 { width: 160px; height: 160px; }
   .orb-core   { width: 120px; height: 120px; }
-  .float-chip { font-size: 0.7rem; padding: 6px 12px; }
-  .chip-3, .chip-4 { display: none; }
+  
+  /* Tucked the chips slightly inward so they don't break the screen width */
+  .float-chip { 
+    font-size: 0.7rem; 
+    padding: 6px 12px; 
+  }
+  .chip-1 { top: 10px; left: 5%; }
+  .chip-2 { top: 10px; right: 5%; }
+  
+  /* Hide the extra chips on tiny screens to prevent clutter */
+  .chip-3, .chip-4 { 
+    display: none; 
+  }
+
+  .btn-primary, .btn-outline {
+    width: 100%; /* Full width buttons for easier tapping on mobile */
+    justify-content: center;
+  }
+  
+  .hero-buttons {
+    width: 100%;
+    flex-direction: column;
+  }
 }
