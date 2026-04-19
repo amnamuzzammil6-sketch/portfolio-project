@@ -380,12 +380,10 @@
 @media (max-width: 1024px) {
   .hero-section {
     grid-template-columns: 1fr;
-    /* Increased top padding so the header doesn't overlap the content */
     padding: 120px 5% 80px; 
     gap: 40px;
   }
   
-  /* REMOVED order: -1; so the text naturally sits above the visual on mobile */
   .hero-right {
     height: 400px;
     margin-top: 20px;
@@ -396,7 +394,6 @@
   .orb-ring-3 { width: 200px; height: 200px; }
   .orb-core   { width: 160px; height: 160px; }
   
-  /* Centering the text content cleanly */
   .hero-left  { 
     align-items: center; 
     text-align: center; 
@@ -414,7 +411,7 @@
   
   .role-wrapper { 
     justify-content: center; 
-    flex-wrap: wrap; /* Allows text to wrap safely on small screens */
+    flex-wrap: wrap; 
   }
 }
 
@@ -424,14 +421,12 @@
     gap: 30px;
   }
   
-  /* Fluid typography so the headline scales perfectly without breaking */
   .hero-name { 
     font-size: clamp(2rem, 8vw, 2.5rem); 
     line-height: 1.2;
     margin-bottom: 15px;
   }
   
-  /* Adjusted badge for smaller screens */
   .hero-badge {
     font-size: 0.65rem;
     padding: 6px 12px;
@@ -449,21 +444,18 @@
   .orb-ring-3 { width: 160px; height: 160px; }
   .orb-core   { width: 120px; height: 120px; }
   
-  /* Tucked the chips slightly inward so they don't break the screen width */
+  /* --- FIX: ALL 4 CHIPS RESTORED AND SCALED FOR MOBILE --- */
   .float-chip { 
-    font-size: 0.7rem; 
-    padding: 6px 12px; 
+    font-size: 0.65rem; 
+    padding: 6px 10px; 
   }
-  .chip-1 { top: 10px; left: 5%; }
-  .chip-2 { top: 10px; right: 5%; }
-  
-  /* Hide the extra chips on tiny screens to prevent clutter */
-  .chip-3, .chip-4 { 
-    display: none; 
-  }
+  .chip-1 { top: 10px; left: 2%; }
+  .chip-2 { top: 10px; right: 2%; }
+  .chip-3 { bottom: 20px; left: 2%; display: flex; }
+  .chip-4 { bottom: 20px; right: 2%; display: flex; }
 
   .btn-primary, .btn-outline {
-    width: 100%; /* Full width buttons for easier tapping on mobile */
+    width: 100%; 
     justify-content: center;
   }
   
