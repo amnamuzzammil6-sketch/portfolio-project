@@ -18,6 +18,13 @@ import "./Projects.css";
 
 const webProjects = [
   {
+    title: "Vibe Station",
+    desc: "Premium React e-commerce landing page featuring a custom Black & Gold UI, glassmorphism, and aspect-ratio image masking.",
+    link: "https://vibestation-kappa.vercel.app",
+    external: true,
+    image: "https://placehold.co/520x310/101929/0ea5e9/png?text=Vibe+Station",
+  },
+  {
     title: "Website Auditor Pro",
     desc: "Full-stack enterprise app — React + Python/Flask REST API pulling live Google PageSpeed metrics and generating automated UX/UI PDF reports.",
     link: "https://website-auditor-pro.vercel.app",
